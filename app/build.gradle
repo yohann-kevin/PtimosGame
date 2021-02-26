@@ -28,3 +28,7 @@ application {
     // Define the main class for the application.
     mainClass = 'ptimos.App'
 }
+
+run {
+    standardInput = System.in
+}
