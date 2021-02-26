@@ -29,10 +29,38 @@ public class Game {
         System.out.println("[q] - Quitter");
         Scanner scanner = new Scanner(System.in);
         Object response = scanner.nextLine();
-        System.out.println(response);
+        verifyResponse(response);
     }
 
     public void verifyResponse(Object response) {
-        
+        boolean checked = false;
+        if (response.getClass().getName() == "java.lang.String" && ((String) response).length() == 1) checked = true;
+        if (checked) {
+            this.manageResponse(response);
+        } else {
+            this.errorResponse();
+        }
+    }
+
+    public void errorResponse() {
+        System.out.println("Le programme ne reconnait pas votre réponse");
+        this.init();
+    }
+
+    public void manageResponse(Object response) {
+        // String answer = (String) response;
+        switch ((String) response) {
+            case "q" :
+                System.out.println("Au revoir !");
+                break;
+            case "a" :
+                System.out.println("Le jeux continue");
+                break;
+            case "b" :
+                System.out.println("Vous partez à la recherche d'autre Ptimos");
+                break;
+            default : 
+                System.out.println("Au revoir !");
+        }
     }
 }
