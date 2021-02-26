@@ -6,11 +6,11 @@ public class SacBleu extends Ptimos {
     public SacBleu(String type) {
         super(type);
         this.rarity = sacbleuRarity;
-        this.dominance = this.generateDominanceAndStress();
-        this.stress = this.generateDominanceAndStress();
+        // this.dominance = this.generateDominanceAndStress();
+        // this.stress = this.generateDominanceAndStress();
     }
 
-    public int generateDominanceAndStress() {
-        return this.generateRandomNum(80, 100);
-    }
+    // public int generateDominanceAndStress() {
+    //     return this.generateRandomNum(80, 100);
+    // }
 }

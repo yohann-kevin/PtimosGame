@@ -18,17 +18,16 @@ abstract public class Ptimos {
         return this.rarity;
     }
 
-    // fonction récursive
-    public int generateRandomNum(int min, int max) {
-        double coef = Math.random();
-        // int index = String.valueOf(max).length();
-        int result = (int) (coef * 100);
-        if (result < min || result > max) {
-            return generateRandomNum(min, max);
-        } else {
-            return result;
-        }
-    }
+    // public int generateRandomNum(int min, int max) {
+    //     double coef = Math.random();
+    //     int index = String.valueOf(max).length();
+    //     int result = (int) (coef * 100);
+    //     if (result < min || result > max) {
+    //         return generateRandomNum(min, max);
+    //     } else {
+    //         return result;
+    //     }
+    // }
 
     public void attack(Human target) {
         int dps = 10;

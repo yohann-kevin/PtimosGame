@@ -27,8 +27,7 @@ public class Game {
         System.out.println("[a] - Oui");
         System.out.println("[b] - Non");
         System.out.println("[q] - Quitter");
-        Scanner scanner = new Scanner(System.in);
-        Object response = scanner.nextLine();
+        Object response = new Scanner(System.in).nextLine();
         verifyResponse(response);
     }
 
@@ -48,7 +47,6 @@ public class Game {
     }
 
     public void manageResponse(Object response) {
-        // String answer = (String) response;
         switch ((String) response) {
             case "q" :
                 System.out.println("Au revoir !");
