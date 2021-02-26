@@ -14,6 +14,12 @@ public class App {
         PtimoFactory factoryPtimo = PtimoFactory.getPtimoFactory();
         Ptimos machin = factoryPtimo.getPtimo("sacbleu");
         System.out.println(machin.getType());
-        machin.generateRandomNum(1, 3);
+        machin.generateRandomNum(80, 100);
+        System.out.println(machin.dominance);
+        System.out.println(machin.stress);
+
+        Game game = new Game(juliette,machin);
+        game.test();
+        game.init();
     }
 }
