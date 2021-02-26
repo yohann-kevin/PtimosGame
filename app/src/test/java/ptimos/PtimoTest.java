@@ -14,11 +14,4 @@ public class PtimoTest {
         Ptimos machin = factoryPtimo.getPtimo("sacbleu");
         assertEquals("sacbleu",machin.getType());
     }
-
-    @Test
-    public void testGetRarity() {
-        PtimoFactory factoryPtimo = PtimoFactory.getPtimoFactory();
-        Ptimos machin = factoryPtimo.getPtimo("sacbleu");
-        assertEquals(1,machin.getRarity());
-    }
 }

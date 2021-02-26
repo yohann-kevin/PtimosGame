@@ -1,34 +1,46 @@
 package ptimos;
 
-import java.util.Scanner; 
+import java.util.Scanner;
+
+import ptimos.factory.PtimoFactory;
+import ptimos.lib.Arena;
 import ptimos.lib.Human;
 import ptimos.lib.Ptimos;
+import ptimos.lib.RandomNum;
 
 public class Game {
     Human player;
     Ptimos ptimo;
 
-    public Game(Human player, Ptimos ptimo) {
+    public Game(Human player) {
         this.player = player;
-        this.ptimo = ptimo;
-    }
-
-    public void test() {
-        System.out.println("Stress : " + ptimo.stress);
-        this.player.launchCandy(this.ptimo);
-        System.out.println("Stress : " + ptimo.stress);
-        System.out.println("Life : " + player.getLife());
-        this.ptimo.attack(player);
-        System.out.println("Life : " + player.getLife());
     }
 
     public void init() {
+        this.selectPtimos();
         System.out.println("Un " + this.ptimo.getType() + " se cache dans ce bois, voulez-vous le capturer ?");
-        System.out.println("[a] - Oui");
-        System.out.println("[b] - Non");
+        System.out.println("[o] - Oui");
+        System.out.println("[n] - Non");
         System.out.println("[q] - Quitter");
+        this.userReadLine();
+    }
+
+    public void selectPtimos() {
+        int result = new RandomNum(1, 100).generateRandomNum();
+        if (result < 61) {
+            System.out.println("sacbleu");
+        } else if (result > 61 && result < 91) {
+            System.out.println("pyralia");
+        } else {
+            System.out.println("pokrand");
+        }
+        PtimoFactory factoryPtimo = PtimoFactory.getPtimoFactory();
+        this.ptimo = factoryPtimo.getPtimo("sacbleu");
+    }
+
+    public void userReadLine() {
         Object response = new Scanner(System.in).nextLine();
-        verifyResponse(response);
+        this.verifyResponse(response);
     }
 
     public void verifyResponse(Object response) {
@@ -51,10 +63,12 @@ public class Game {
             case "q" :
                 System.out.println("Au revoir !");
                 break;
-            case "a" :
+            case "o" :
                 System.out.println("Le jeux continue");
+                Arena arena = new Arena(this.player, this.ptimo);
+                arena.startCapture();
                 break;
-            case "b" :
+            case "n" :
                 System.out.println("Vous partez à la recherche d'autre Ptimos");
                 break;
             default : 
