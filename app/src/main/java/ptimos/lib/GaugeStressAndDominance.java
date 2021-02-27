@@ -16,15 +16,7 @@ public class GaugeStressAndDominance {
 
     public void gauge(boolean isStress) {
         isStress(isStress);
-        if (this.element < 26) {
-            this.finalResult = this.tabResult[0];
-        } else if (this.element > 25 && this.element < 51) {
-            this.finalResult = this.tabResult[1];
-        } else if (this.element > 50 && this.element < 76) {
-            this.finalResult = this.tabResult[2];
-        } else {
-            this.finalResult = this.tabResult[3];
-        }
+        this.finalResult = this.element < 26 ? this.tabResult[0] : this.element < 51 ? this.tabResult[1] : this.element < 76 ? this.tabResult[2] : this.tabResult[3];
     }
 
     public void isStress(boolean isStress) {
