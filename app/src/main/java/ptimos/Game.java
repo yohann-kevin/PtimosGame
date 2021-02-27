@@ -8,8 +8,8 @@ import ptimos.lib.RandomNum;
 import ptimos.lib.UsersReadLine;
 
 public class Game {
-    Human player;
-    Ptimos ptimo;
+    public Human player;
+    public Ptimos ptimo;
     public UsersReadLine usersResponse;
 
     public Game(Human player) {
@@ -18,13 +18,14 @@ public class Game {
 
     public void init() {
         this.selectPtimos();
+        System.out.println(ptimo);
         System.out.println("Un " + this.ptimo.getType() + " se cache dans ce bois, voulez-vous le capturer ?");
         System.out.println("[o] - Oui");
         System.out.println("[n] - Non");
         System.out.println("[q] - Quitter");
         this.usersResponse = new UsersReadLine();
         usersResponse.userReadLine();
-        this.checkUsersResponse();
+        this.checkUsersResponse(this.usersResponse);
     }
 
     public void selectPtimos() {
@@ -40,8 +41,14 @@ public class Game {
         this.ptimo = factoryPtimo.getPtimo("sacbleu");
     }
 
-    public void checkUsersResponse() {
-        if (this.usersResponse.isStartFight) this.startFight();
+    public void checkUsersResponse(UsersReadLine response) {
+        if (response.isStartFight) {
+            response.isStartFight = false;
+            this.startFight();
+        } else if(response.isWatching) {
+            response.isWatching = false;
+            this.player.watching(this.ptimo);
+        }
     }
 
     public void startFight() {

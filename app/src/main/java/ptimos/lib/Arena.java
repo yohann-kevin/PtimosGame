@@ -4,7 +4,7 @@ import ptimos.Game;
 
 public class Arena extends Game {
     Human player;
-    Ptimos ptimo;
+    // Ptimos ptimo;
     int range =  new RandomNum(8, 15).generateRandomNum();
 
     public Arena(Human player, Ptimos ptimo) {
@@ -26,5 +26,6 @@ public class Arena extends Game {
         System.out.println("[0] - Laisser le " + this.ptimo.getType() + " en liberté");
         this.usersResponse = new UsersReadLine();
         this.usersResponse.userReadLine();
+        this.checkUsersResponse(usersResponse);
     }
 }
