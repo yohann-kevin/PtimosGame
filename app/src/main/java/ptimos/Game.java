@@ -52,12 +52,13 @@ public class Game {
             this.player.watching(this.ptimo);
         } else if (response.isMoving) {
             response.isMoving = false;
-            // System.out.println("range " + this.range);
             this.range -= this.player.moveforward();
-            // System.out.println("range " + this.range);
         } else if(response.isLaunchCandy) {
             response.isLaunchCandy = false;
             this.player.launchCandy(this.ptimo,this.range);
+        } else if(response.isDancing) {
+            response.isDancing = false;
+            this.player.awesomeDance(this.ptimo);
         }
     }
 

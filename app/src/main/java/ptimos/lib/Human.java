@@ -67,7 +67,16 @@ public class Human {
         }
     }
 
-    public void awesomeDance() {}
+    public void awesomeDance(Ptimos target) {
+        int dancingPower = new RandomNum(7, 21).generateRandomNum();
+        if (dancingPower < 15) {
+            target.setDominance(dancingPower);
+            System.out.println("Vous effectuer une dance asser sympa qui baisse la dominance du " + target.getType() + " de " + dancingPower + " point");
+        } else {
+            target.setDominance(dancingPower);
+            System.out.println("Vous effectuer une dance tellement incroyable qu'elle baisse la dominance du " + target.getType() + " de " + dancingPower + " point !");
+        }
+    }
 
     public void shotArrow() {}
 
