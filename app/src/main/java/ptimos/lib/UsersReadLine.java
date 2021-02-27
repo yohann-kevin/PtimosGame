@@ -3,9 +3,7 @@ package ptimos.lib;
 import java.util.Scanner;
 
 public class UsersReadLine {
-    boolean isResponseMeet;
     public boolean isStartFight;
-    boolean isResponseFight;
 
     public void userReadLine() {
         Object response = new Scanner(System.in).nextLine();
@@ -14,9 +12,13 @@ public class UsersReadLine {
 
     public void verifyResponse(Object response) {
         boolean checked = false;
-        if (response.getClass().getName() == "java.lang.String" && ((String) response).length() == 1) this.isResponseMeet = true;
-        if (this.isResponseMeet) {
-            this.manageResponseMeet(response);
+        if (response.getClass().getName() == "java.lang.String" && ((String) response).length() == 1) {
+            try {
+                Integer responseNum = Integer.parseInt((String) response);
+                this.manageResponseFight(responseNum);
+            } catch (Exception e) {
+                this.manageResponseMeet(response);
+            }
         } else {
             this.errorResponse();
         }
@@ -24,7 +26,6 @@ public class UsersReadLine {
 
     public void errorResponse() {
         System.out.println("Le programme ne reconnait pas votre réponse");
-        // this.init();
     }
 
     public void manageResponseMeet(Object response) {
@@ -35,14 +36,37 @@ public class UsersReadLine {
             case "o" :
                 System.out.println("Le jeux continue");
                 this.isStartFight = true;
-                // Arena arena = new Arena(this.player, this.ptimo);
-                // arena.startCapture();
                 break;
             case "n" :
                 System.out.println("Vous partez à la recherche d'autre Ptimos");
                 break;
             default : 
                 System.out.println("Au revoir !");
+        }
+    }
+
+    public void manageResponseFight(Integer response) {
+        switch (response) {
+            case 1 :
+                System.out.println("Observer");
+                break;
+            case 2 :
+                System.out.println("Se rapprocher");
+                break;
+            case 3 :
+                System.out.println("lancer friandise");
+                break;
+            case 4 :
+                System.out.println("Faire une danse impressionante");
+                break;
+            case 5 : 
+                System.out.println("Tirer un flechette");
+                break;
+            case 0 :
+                System.out.println("Vous partez");
+                break;
+            default : 
+                System.out.println("Vous partez");
         }
     }
 }

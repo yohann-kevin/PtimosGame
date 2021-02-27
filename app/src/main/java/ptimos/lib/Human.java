@@ -5,6 +5,7 @@ public class Human {
     private int life = 100;
     private int ptimoCage = 10;
     private int candy = 30;
+    private int sleepingArrow = 1;
     
     public Human(String name) {
         this.name = name;
@@ -26,6 +27,14 @@ public class Human {
         return this.ptimoCage;
     }
 
+    public int getCandy() {
+        return this.candy;
+    }
+
+    public int getSleepingArrow() {
+        return this.sleepingArrow;
+    }
+
     public void watch() {}
 
     public void moveforward() {}
@@ -36,7 +45,7 @@ public class Human {
 
     public void awesomeDance() {}
 
-    public void singLullaby() {}
+    public void shotArrow() {}
 
     public void Escape() {}
 }

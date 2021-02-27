@@ -10,13 +10,11 @@ import ptimos.lib.UsersReadLine;
 public class Game {
     Human player;
     Ptimos ptimo;
-    UsersReadLine usersResponse;
+    public UsersReadLine usersResponse;
 
     public Game(Human player) {
         this.player = player;
     }
-
-    public Game() {}
 
     public void init() {
         this.selectPtimos();
