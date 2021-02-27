@@ -8,6 +8,7 @@ public class UsersReadLine {
     public boolean isMoving;
     public boolean isLaunchCandy;
     public boolean isDancing;
+    public boolean isShotArrow;
 
     public void userReadLine() {
         Object response = new Scanner(System.in).nextLine();
@@ -67,7 +68,7 @@ public class UsersReadLine {
                 this.isDancing = true;
                 break;
             case 5 : 
-                System.out.println("Tirer un flechette");
+                this.isShotArrow = true;
                 break;
             case 0 :
                 System.out.println("Vous partez");

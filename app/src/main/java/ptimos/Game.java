@@ -59,6 +59,9 @@ public class Game {
         } else if(response.isDancing) {
             response.isDancing = false;
             this.player.awesomeDance(this.ptimo);
+        } else if(response.isShotArrow) {
+            response.isShotArrow = false;
+            this.player.shotArrow(this.ptimo);
         }
     }
 

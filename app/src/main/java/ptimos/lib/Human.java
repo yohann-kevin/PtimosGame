@@ -6,6 +6,10 @@ public class Human {
     private int ptimoCage = 10;
     private int candy = 30;
     private int sleepingArrow = 1;
+    private int sacbleuCaptured;
+    private int pyraliaCaptured;
+    private int pokrandCaptured;
+    public boolean ptimoIsCaptured;
     
     public Human(String name) {
         this.name = name;
@@ -78,7 +82,19 @@ public class Human {
         }
     }
 
-    public void shotArrow() {}
+    public void shotArrow(Ptimos target) {
+        System.out.println("Vous tirez une fléchette endormante sur le " + target.getType());
+        this.sleepingArrow--;
+        this.ptimoCage --;
+        if (target.getType().equals("sacbleu")) {
+            this.sacbleuCaptured++;
+        } else if (target.getType().equals("pyralia")) {
+            this.pyraliaCaptured++;
+        } else {
+            this.pokrandCaptured++;
+        }
+        this.ptimoIsCaptured = true;
+    }
 
     public void Escape() {}
 }
