@@ -1,20 +1,22 @@
 package ptimos;
 
-import java.util.Scanner;
-
 import ptimos.factory.PtimoFactory;
 import ptimos.lib.Arena;
 import ptimos.lib.Human;
 import ptimos.lib.Ptimos;
 import ptimos.lib.RandomNum;
+import ptimos.lib.UsersReadLine;
 
 public class Game {
     Human player;
     Ptimos ptimo;
+    UsersReadLine usersResponse;
 
     public Game(Human player) {
         this.player = player;
     }
+
+    public Game() {}
 
     public void init() {
         this.selectPtimos();
@@ -22,7 +24,9 @@ public class Game {
         System.out.println("[o] - Oui");
         System.out.println("[n] - Non");
         System.out.println("[q] - Quitter");
-        this.userReadLine();
+        this.usersResponse = new UsersReadLine();
+        usersResponse.userReadLine();
+        this.checkUsersResponse();
     }
 
     public void selectPtimos() {
@@ -38,41 +42,12 @@ public class Game {
         this.ptimo = factoryPtimo.getPtimo("sacbleu");
     }
 
-    public void userReadLine() {
-        Object response = new Scanner(System.in).nextLine();
-        this.verifyResponse(response);
+    public void checkUsersResponse() {
+        if (this.usersResponse.isStartFight) this.startFight();
     }
 
-    public void verifyResponse(Object response) {
-        boolean checked = false;
-        if (response.getClass().getName() == "java.lang.String" && ((String) response).length() == 1) checked = true;
-        if (checked) {
-            this.manageResponse(response);
-        } else {
-            this.errorResponse();
-        }
-    }
-
-    public void errorResponse() {
-        System.out.println("Le programme ne reconnait pas votre réponse");
-        this.init();
-    }
-
-    public void manageResponse(Object response) {
-        switch ((String) response) {
-            case "q" :
-                System.out.println("Au revoir !");
-                break;
-            case "o" :
-                System.out.println("Le jeux continue");
-                Arena arena = new Arena(this.player, this.ptimo);
-                arena.startCapture();
-                break;
-            case "n" :
-                System.out.println("Vous partez à la recherche d'autre Ptimos");
-                break;
-            default : 
-                System.out.println("Au revoir !");
-        }
+    public void startFight() {
+        Arena arena = new Arena(this.player, this.ptimo);
+        arena.startCapture();
     }
 }
