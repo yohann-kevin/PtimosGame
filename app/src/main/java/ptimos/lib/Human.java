@@ -51,12 +51,20 @@ public class Human {
     }
 
     public int moveforward() {
+        System.out.println("Vous vous rapprocher");
         return new RandomNum(3,8).generateRandomNum();
     }
 
-    public void launchCandy(Ptimos target) {
-        target.setStress(10);
-        System.out.println(target.getStress());
+    public void launchCandy(Ptimos target,int range) {
+        this.candy--;
+        int candyPower = 70 / range;
+        int probaShot = new RandomNum(0, 100).generateRandomNum();
+        if (probaShot < candyPower) {
+            target.setStress(candyPower);
+            System.out.println(target.getType() + " perd " + candyPower + " point de stress");
+        } else {
+            System.out.println("Vous feriez mieux d'apprendre à viser vous avez rater le " + target.getType());
+        }
     }
 
     public void awesomeDance() {}

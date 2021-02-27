@@ -6,6 +6,7 @@ public class UsersReadLine {
     public boolean isStartFight;
     public boolean isWatching;
     public boolean isMoving;
+    public boolean isLaunchCandy;
 
     public void userReadLine() {
         Object response = new Scanner(System.in).nextLine();
@@ -54,11 +55,11 @@ public class UsersReadLine {
                 this.isWatching = true;
                 break;
             case 2 :
-                System.out.println("Se rapprocher");
                 this.isMoving = true;
                 break;
             case 3 :
                 System.out.println("lancer friandise");
+                this.isLaunchCandy = true;
                 break;
             case 4 :
                 System.out.println("Faire une danse impressionante");
