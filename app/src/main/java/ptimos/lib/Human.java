@@ -96,5 +96,5 @@ public class Human {
         this.ptimoIsCaptured = true;
     }
 
-    public void Escape() {}
+    // public void escape() {}
 }

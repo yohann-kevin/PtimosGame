@@ -62,6 +62,9 @@ public class Game {
         } else if(response.isShotArrow) {
             response.isShotArrow = false;
             this.player.shotArrow(this.ptimo);
+        } else if(response.isEscape) {
+            response.isEscape = false;
+            this.init();
         }
     }
 

@@ -9,6 +9,7 @@ public class UsersReadLine {
     public boolean isLaunchCandy;
     public boolean isDancing;
     public boolean isShotArrow;
+    public boolean isEscape;
 
     public void userReadLine() {
         Object response = new Scanner(System.in).nextLine();
@@ -44,6 +45,7 @@ public class UsersReadLine {
                 break;
             case "n" :
                 System.out.println("Vous partez à la recherche d'autre Ptimos");
+                this.isEscape = true;
                 break;
             default : 
                 System.out.println("Au revoir !");
@@ -71,10 +73,12 @@ public class UsersReadLine {
                 this.isShotArrow = true;
                 break;
             case 0 :
-                System.out.println("Vous partez");
+                System.out.println("Vous partez à la recherche d'autre Ptimos");
+                this.isEscape = true;
                 break;
             default : 
-                System.out.println("Vous partez");
+                System.out.println("Vous partez à la recherche d'autre Ptimos");
+                this.isEscape = true;
         }
     }
 }
