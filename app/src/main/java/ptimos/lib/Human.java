@@ -71,7 +71,9 @@ public class Human {
         }
     }
 
-    public void moveforward() {}
+    public int moveforward() {
+        return new RandomNum(3,8).generateRandomNum();
+    }
 
     public void launchCandy(Ptimos target) {
         target.setStress(10);

@@ -11,6 +11,8 @@ public class Game {
     public Human player;
     public Ptimos ptimo;
     public UsersReadLine usersResponse;
+    // public Arena arena;
+    int range =  new RandomNum(8, 15).generateRandomNum();
 
     public Game(Human player) {
         this.player = player;
@@ -44,15 +46,31 @@ public class Game {
     public void checkUsersResponse(UsersReadLine response) {
         if (response.isStartFight) {
             response.isStartFight = false;
-            this.startFight();
+            this.startCapture();
         } else if(response.isWatching) {
             response.isWatching = false;
             this.player.watching(this.ptimo);
+        } else if (response.isMoving) {
+            response.isMoving = false;
+            System.out.println("range " + this.range);
+            this.range -= this.player.moveforward();
+            System.out.println("range " + this.range);
         }
     }
 
-    public void startFight() {
-        Arena arena = new Arena(this.player, this.ptimo);
-        arena.startCapture();
+    public void startCapture() {
+        System.out.println(this.player.getName() + " (" + this.player.getLife() + "pv)");
+        System.out.println("Vous êtes à " + this.range + "m d'un " + this.ptimo.getType());
+        System.out.println(" ");
+        System.out.println("[1] - Observer");
+        System.out.println("[2] - Se rapprocher");
+        System.out.println("[3] - Lancer une friandise (x" + this.player.getCandy() + ")");
+        System.out.println("[4] - Faire une danse imprésionnnate");
+        System.out.println("[5] - Tirer une flechette endormante (x" + this.player.getSleepingArrow() + ")");
+        System.out.println(" ");
+        System.out.println("[0] - Laisser le " + this.ptimo.getType() + " en liberté");
+        this.usersResponse = new UsersReadLine();
+        this.usersResponse.userReadLine();
+        this.checkUsersResponse(usersResponse);
     }
 }

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class UsersReadLine {
     public boolean isStartFight;
     public boolean isWatching;
+    public boolean isMoving;
 
     public void userReadLine() {
         Object response = new Scanner(System.in).nextLine();
@@ -54,6 +55,7 @@ public class UsersReadLine {
                 break;
             case 2 :
                 System.out.println("Se rapprocher");
+                this.isMoving = true;
                 break;
             case 3 :
                 System.out.println("lancer friandise");
