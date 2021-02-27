@@ -1,7 +1,6 @@
 package ptimos;
 
 import ptimos.factory.PtimoFactory;
-import ptimos.lib.Arena;
 import ptimos.lib.Human;
 import ptimos.lib.Ptimos;
 import ptimos.lib.RandomNum;
@@ -20,7 +19,7 @@ public class Game {
 
     public void init() {
         this.selectPtimos();
-        System.out.println(ptimo);
+        // System.out.println(ptimo);
         System.out.println("Un " + this.ptimo.getType() + " se cache dans ce bois, voulez-vous le capturer ?");
         System.out.println("[o] - Oui");
         System.out.println("[n] - Non");
@@ -32,15 +31,19 @@ public class Game {
 
     public void selectPtimos() {
         int result = new RandomNum(1, 100).generateRandomNum();
+        PtimoFactory factoryPtimo = PtimoFactory.getPtimoFactory();
+
         if (result < 61) {
             System.out.println("sacbleu");
+            this.ptimo = factoryPtimo.getPtimo("sacbleu");
         } else if (result > 61 && result < 91) {
             System.out.println("pyralia");
+            this.ptimo = factoryPtimo.getPtimo("pyralia");
         } else {
             System.out.println("pokrand");
+            this.ptimo = factoryPtimo.getPtimo("pokrand");
         }
-        PtimoFactory factoryPtimo = PtimoFactory.getPtimoFactory();
-        this.ptimo = factoryPtimo.getPtimo("sacbleu");
+        
     }
 
     public void checkUsersResponse(UsersReadLine response) {
