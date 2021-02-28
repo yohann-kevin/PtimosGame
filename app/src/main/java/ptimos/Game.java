@@ -9,9 +9,8 @@ import ptimos.lib.UsersReadLine;
 public class Game {
     public Human player;
     public Ptimos ptimo;
-    public UsersReadLine usersResponse;
-    // public Arena arena;
-    int range =  new RandomNum(8, 15).generateRandomNum();
+    public UsersReadLine usersResponse = new UsersReadLine();
+    int range;
 
     public Game(Human player) {
         this.player = player;
@@ -19,12 +18,11 @@ public class Game {
 
     public void init() {
         this.selectPtimos();
-        // System.out.println(ptimo);
+        this.range = new RandomNum(8, 15).generateRandomNum();
         System.out.println("Un " + this.ptimo.getType() + " se cache dans ce bois, voulez-vous le capturer ?");
         System.out.println("[o] - Oui");
         System.out.println("[n] - Non");
         System.out.println("[q] - Quitter");
-        this.usersResponse = new UsersReadLine();
         usersResponse.userReadLine();
         this.checkUsersResponse(this.usersResponse);
     }
@@ -49,7 +47,7 @@ public class Game {
     public void checkUsersResponse(UsersReadLine response) {
         if (response.isStartFight) {
             response.isStartFight = false;
-            this.startCapture();
+            this.startRound();
         } else if(response.isWatching) {
             response.isWatching = false;
             this.player.watching(this.ptimo);
@@ -71,7 +69,7 @@ public class Game {
         }
     }
 
-    public void startCapture() {
+    public void startRound() {
         System.out.println(this.player.getName() + " (" + this.player.getLife() + "pv)");
         System.out.println("Vous êtes à " + this.range + "m d'un " + this.ptimo.getType());
         System.out.println(" ");
@@ -82,8 +80,22 @@ public class Game {
         System.out.println("[5] - Tirer une flechette endormante (x" + this.player.getSleepingArrow() + ")");
         System.out.println(" ");
         System.out.println("[0] - Laisser le " + this.ptimo.getType() + " en liberté");
-        this.usersResponse = new UsersReadLine();
-        this.usersResponse.userReadLine();
-        this.checkUsersResponse(usersResponse);
+        manageEndgame();
+    }
+
+    public void manageEndgame() {
+        if (this.player.getLife() <= 0) {
+            this.gameOver();
+        } else if(this.range <= 0) {
+            this.init();
+        } else {
+            this.usersResponse.userReadLine();
+            this.checkUsersResponse(usersResponse);
+            this.startRound();
+        }
+    }
+
+    public void gameOver() {
+        System.out.println("gameOver");
     }
 }
