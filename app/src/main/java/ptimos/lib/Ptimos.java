@@ -1,5 +1,7 @@
 package ptimos.lib;
 
+import ptimos.Game;
+
 abstract public class Ptimos {
     String type;
     protected int stress;
@@ -33,10 +35,9 @@ abstract public class Ptimos {
     }
 
     // all method
-
-    public void feedback() {
+    public void feedback(Game game) {
         System.out.println(this.type + " réagis !");
-        this.roar();
+        this.moveAway(game);
     }
 
     public void roar() {
@@ -50,7 +51,10 @@ abstract public class Ptimos {
         this.target.setLife(dps);
     }
 
-    public void moveAway() {}
+    public void moveAway(Game game) {
+        int move = new RandomNum(2, 5).generateRandomNum();
+        game.range += move;
+    }
 
     public void magicAttack() {}
 }

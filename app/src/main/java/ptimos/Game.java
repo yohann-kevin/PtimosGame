@@ -10,7 +10,7 @@ public class Game {
     public Human player;
     public Ptimos ptimo;
     public UsersReadLine usersResponse = new UsersReadLine();
-    int range;
+    public int range;
 
     public Game(Human player) {
         this.player = player;
@@ -86,7 +86,7 @@ public class Game {
     public void manageEndgame() {
         if (this.player.getLife() <= 0) {
             this.gameOver();
-        } else if(this.range <= 0) {
+        } else if(this.range <= 0 || this.range > 15) {
             this.init();
         } else {
             this.usersResponse.userReadLine();
@@ -97,11 +97,7 @@ public class Game {
 
     public void usersExitGame() {
         if (!this.usersResponse.isExit) {
-            System.out.println("Dominance : " + this.ptimo.getDominance());
-            System.out.println("Stress : " + this.ptimo.getStress());
-            this.ptimo.feedback();
-            System.out.println("Dominance : " + this.ptimo.getDominance());
-            System.out.println("Stress : " + this.ptimo.getStress());
+            this.ptimo.feedback(this);
             this.startRound();  
         } else {
             this.gameOver();
