@@ -33,13 +33,13 @@ public class Game {
 
         if (result < 61) {
             System.out.println("sacbleu");
-            this.ptimo = factoryPtimo.getPtimo("sacbleu");
+            this.ptimo = factoryPtimo.getPtimo("sacbleu",this.player);
         } else if (result > 61 && result < 91) {
             System.out.println("pyralia");
-            this.ptimo = factoryPtimo.getPtimo("pyralia");
+            this.ptimo = factoryPtimo.getPtimo("pyralia",this.player);
         } else {
             System.out.println("pokrand");
-            this.ptimo = factoryPtimo.getPtimo("pokrand");
+            this.ptimo = factoryPtimo.getPtimo("pokrand",this.player);
         }
         
     }
@@ -90,8 +90,21 @@ public class Game {
             this.init();
         } else {
             this.usersResponse.userReadLine();
-            this.checkUsersResponse(usersResponse);
-            this.startRound();
+            this.checkUsersResponse(this.usersResponse);
+            this.usersExitGame();
+        }
+    }
+
+    public void usersExitGame() {
+        if (!this.usersResponse.isExit) {
+            System.out.println("Dominance : " + this.ptimo.getDominance());
+            System.out.println("Stress : " + this.ptimo.getStress());
+            this.ptimo.feedback();
+            System.out.println("Dominance : " + this.ptimo.getDominance());
+            System.out.println("Stress : " + this.ptimo.getStress());
+            this.startRound();  
+        } else {
+            this.gameOver();
         }
     }
 

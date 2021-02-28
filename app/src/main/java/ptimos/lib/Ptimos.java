@@ -4,11 +4,14 @@ abstract public class Ptimos {
     String type;
     protected int stress;
     protected int dominance;
+    Human target;
 
-    public Ptimos(String type) {
+    public Ptimos(String type,Human target) {
         this.type = type;
+        this.target = target;
     }
 
+    // getter and setter
     public String getType() {
         return this.type;
     }
@@ -29,12 +32,23 @@ abstract public class Ptimos {
         this.dominance -= malus;
     }
 
-    public void attack(Human target) {
-        int dps = 10;
-        target.setLife(dps);
+    // all method
+
+    public void feedback() {
+        System.out.println(this.type + " réagis !");
+        this.roar();
     }
 
-    public void roar() {}
+    public void roar() {
+        int bonus  = new RandomNum(0, 20).generateRandomNum();
+        this.dominance += bonus;
+        this.stress -= bonus;
+    }
+
+    public void attack() {
+        int dps = new RandomNum(0, 20).generateRandomNum();
+        this.target.setLife(dps);
+    }
 
     public void moveAway() {}
 

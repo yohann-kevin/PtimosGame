@@ -10,6 +10,7 @@ public class UsersReadLine {
     public boolean isDancing;
     public boolean isShotArrow;
     public boolean isEscape;
+    public boolean isExit;
 
     public void userReadLine() {
         Object response = new Scanner(System.in).nextLine();
@@ -38,6 +39,7 @@ public class UsersReadLine {
         switch ((String) response) {
             case "q" :
                 System.out.println("Au revoir !");
+                this.isExit = true;
                 break;
             case "o" :
                 System.out.println("Le jeux continue");
