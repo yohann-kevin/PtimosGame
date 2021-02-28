@@ -37,7 +37,7 @@ abstract public class Ptimos {
     // all method
     public void feedback(Game game) {
         System.out.println(this.type + " réagis !");
-        this.moveAway(game);
+        // this.moveAway(game);
     }
 
     public void roar() {

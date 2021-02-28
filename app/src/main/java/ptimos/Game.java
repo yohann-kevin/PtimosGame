@@ -62,7 +62,7 @@ public class Game {
             this.player.awesomeDance(this.ptimo);
         } else if(response.isShotArrow) {
             response.isShotArrow = false;
-            this.player.shotArrow(this.ptimo);
+            this.player.shotArrow(this.ptimo,this);
         } else if(response.isEscape) {
             response.isEscape = false;
             this.init();
@@ -86,7 +86,10 @@ public class Game {
     public void manageEndgame() {
         if (this.player.getLife() <= 0) {
             this.gameOver();
-        } else if(this.range <= 0 || this.range > 15) {
+        } else if(this.range <= 0) {
+            player.capture(this.ptimo);
+            this.init();
+        } else if(this.range > 15) {
             this.init();
         } else {
             this.usersResponse.userReadLine();

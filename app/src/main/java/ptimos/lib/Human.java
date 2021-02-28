@@ -1,5 +1,7 @@
 package ptimos.lib;
 
+import ptimos.Game;
+
 public class Human {
     private String name;
     private int life = 100;
@@ -87,22 +89,27 @@ public class Human {
         }
     }
 
-    public void shotArrow(Ptimos target) {
+    public void shotArrow(Ptimos target,Game game) {
         if (this.sleepingArrow > 0) {
             System.out.println("Vous tirez une fléchette endormante sur le " + target.getType());
             this.sleepingArrow--;
-            this.ptimoCage --;
-            if (target.getType().equals("sacbleu")) {
-                this.sacbleuCaptured++;
-            } else if (target.getType().equals("pyralia")) {
-                this.pyraliaCaptured++;
-            } else {
-                this.pokrandCaptured++;
-            }
-            this.ptimoIsCaptured = true;
+            game.range = 0;
         } else {
             System.out.println("Vous n'avez plus de fléchette endormante");
         }
+    }
+
+    public void capture(Ptimos target) {
+        this.ptimoCage --;
+        System.out.println("Vous avez capturer un " + target.getType());
+        if (target.getType().equals("sacbleu")) {
+            this.sacbleuCaptured++;
+        } else if (target.getType().equals("pyralia")) {
+            this.pyraliaCaptured++;
+        } else {
+            this.pokrandCaptured++;
+        }
+        this.ptimoIsCaptured = true;
     }
 
     // public void escape() {}
