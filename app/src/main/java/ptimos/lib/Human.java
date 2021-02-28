@@ -61,14 +61,19 @@ public class Human {
 
     public void launchCandy(Ptimos target,int range) {
         this.candy--;
-        int candyPower = 70 / range;
-        int probaShot = new RandomNum(0, 100).generateRandomNum();
-        if (probaShot < candyPower) {
-            target.setStress(candyPower);
-            System.out.println(target.getType() + " perd " + candyPower + " point de stress");
+        if (this.candy > 0) {
+            int candyPower = 70 / range;
+            int probaShot = new RandomNum(0, 100).generateRandomNum();
+            if (probaShot < candyPower) {
+                target.setStress(candyPower);
+                System.out.println(target.getType() + " perd " + candyPower + " point de stress");
+            } else {
+                System.out.println("Vous feriez mieux d'apprendre à viser vous avez rater le " + target.getType());
+            }
         } else {
-            System.out.println("Vous feriez mieux d'apprendre à viser vous avez rater le " + target.getType());
+            System.out.println("Vous n'avez plus de bonbon");
         }
+        
     }
 
     public void awesomeDance(Ptimos target) {
@@ -83,17 +88,21 @@ public class Human {
     }
 
     public void shotArrow(Ptimos target) {
-        System.out.println("Vous tirez une fléchette endormante sur le " + target.getType());
-        this.sleepingArrow--;
-        this.ptimoCage --;
-        if (target.getType().equals("sacbleu")) {
-            this.sacbleuCaptured++;
-        } else if (target.getType().equals("pyralia")) {
-            this.pyraliaCaptured++;
+        if (this.sleepingArrow > 0) {
+            System.out.println("Vous tirez une fléchette endormante sur le " + target.getType());
+            this.sleepingArrow--;
+            this.ptimoCage --;
+            if (target.getType().equals("sacbleu")) {
+                this.sacbleuCaptured++;
+            } else if (target.getType().equals("pyralia")) {
+                this.pyraliaCaptured++;
+            } else {
+                this.pokrandCaptured++;
+            }
+            this.ptimoIsCaptured = true;
         } else {
-            this.pokrandCaptured++;
+            System.out.println("Vous n'avez plus de fléchette endormante");
         }
-        this.ptimoIsCaptured = true;
     }
 
     // public void escape() {}
