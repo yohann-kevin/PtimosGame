@@ -22,6 +22,7 @@ public class Game {
         System.out.println("Un " + this.ptimo.getType() + " se cache dans ce bois, voulez-vous le capturer ?");
         System.out.println("[o] - Oui");
         System.out.println("[n] - Non");
+        System.out.println("[r] - Regarder combien de ptimos vous avez capturer");
         System.out.println("[q] - Quitter");
         usersResponse.userReadLine();
         this.checkUsersResponse(this.usersResponse);
@@ -63,6 +64,10 @@ public class Game {
         } else if(response.isShotArrow) {
             response.isShotArrow = false;
             this.player.shotArrow(this.ptimo,this);
+        } else if(response.isChecking) {
+            response.isChecking = false;
+            this.player.checkMyPtimos();
+            this.init();
         } else if(response.isEscape) {
             response.isEscape = false;
             this.init();

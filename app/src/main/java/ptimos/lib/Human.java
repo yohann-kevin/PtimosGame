@@ -112,5 +112,17 @@ public class Human {
         this.ptimoIsCaptured = true;
     }
 
+    public void checkMyPtimos() {
+        int allPtimos = this.sacbleuCaptured + this.pyraliaCaptured + this.pokrandCaptured;
+        if (allPtimos > 0) {
+            System.out.println("Vous avez capturer " + allPtimos + " ptimos.");
+            System.out.println("- " + this.sacbleuCaptured + " sacbleu");
+            System.out.println("- " + this.pyraliaCaptured + " pyralia");
+            System.out.println("- " + this.pokrandCaptured + " pokrand");
+        } else {
+            System.out.println("Vous n'avez pas capturer de ptimos pour le moment.");
+        }        
+    }
+
     // public void escape() {}
 }

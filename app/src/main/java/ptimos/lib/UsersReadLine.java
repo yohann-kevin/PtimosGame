@@ -11,6 +11,7 @@ public class UsersReadLine {
     public boolean isShotArrow;
     public boolean isEscape;
     public boolean isExit;
+    public boolean isChecking;
 
     public void userReadLine() {
         Object response = new Scanner(System.in).nextLine();
@@ -48,6 +49,10 @@ public class UsersReadLine {
             case "n" :
                 System.out.println("Vous partez à la recherche d'autre Ptimos");
                 this.isEscape = true;
+                break;
+            case "r" :
+                System.out.println("Vous regarder vos ptimos");
+                this.isChecking = true;
                 break;
             default : 
                 System.out.println("Au revoir !");
