@@ -39,7 +39,7 @@ abstract public class Ptimos {
     // all method
     public void feedback(Game game) {
         Ia ia = new Ia(this.type,game,this);
-        ia.launchIa();
+        if (game.range > 0) ia.launchIa();
     }
 
     public void roar() {
