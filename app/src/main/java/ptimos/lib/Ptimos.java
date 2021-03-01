@@ -7,7 +7,6 @@ abstract public class Ptimos {
     protected int stress;
     protected int dominance;
     Human target;
-    // int riskAtkMagique;
 
     public Ptimos(String type,Human target) {
         this.type = type;
@@ -37,33 +36,32 @@ abstract public class Ptimos {
 
     // all method
     public void feedback(Game game) {
-        // System.out.println(this.type + " réagis !");
         Ia ia = new Ia(this.type,game,this);
         ia.launchIa();
     }
 
     public void roar() {
-        System.out.println("Roar");
         int bonus  = new RandomNum(0, 20).generateRandomNum();
         this.dominance += bonus;
         if (this.dominance > 100) this.dominance = 100;
         this.stress -= bonus;
         if (this.stress < 0) this.stress = 0;
+        System.out.println(this.getType() + " pousse un cri féroce qui le rend plus sûr de lui");
     }
 
     public void attack() {
-        System.out.println("Attack");
         int dps = new RandomNum(0, 20).generateRandomNum();
+        System.out.println("Le " + this.getType() + " passe à l'attaque");
         this.target.setLife(dps);
     }
 
     public void moveAway(Game game) {
-        System.out.println("Move");
         int move = new RandomNum(2, 5).generateRandomNum();
+        System.out.println("Le " + this.getType() + " s'éloigne de " + move + "m");
         game.range += move;
     }
 
     public void magicAttack() {
-        System.out.println("atk magique");
+        System.out.println("atack magic");
     }
 }

@@ -19,7 +19,7 @@ public class UsersReadLine {
     }
 
     public void verifyResponse(Object response) {
-        boolean checked = false;
+        // boolean checked = false;
         if (response.getClass().getName() == "java.lang.String" && ((String) response).length() == 1) {
             try {
                 Integer responseNum = Integer.parseInt((String) response);
@@ -43,7 +43,6 @@ public class UsersReadLine {
                 this.isExit = true;
                 break;
             case "o" :
-                // System.out.println("Le jeux continue");
                 this.isStartFight = true;
                 break;
             case "n" :
@@ -62,18 +61,15 @@ public class UsersReadLine {
     public void manageResponseFight(Integer response) {
         switch (response) {
             case 1 :
-                System.out.println("Observer");
                 this.isWatching = true;
                 break;
             case 2 :
                 this.isMoving = true;
                 break;
             case 3 :
-                System.out.println("lancer friandise");
                 this.isLaunchCandy = true;
                 break;
             case 4 :
-                System.out.println("Faire une danse impressionante");
                 this.isDancing = true;
                 break;
             case 5 : 

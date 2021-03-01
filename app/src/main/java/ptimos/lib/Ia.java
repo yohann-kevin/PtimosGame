@@ -20,6 +20,7 @@ public class Ia {
     }
 
     public void launchIa() {
+        System.out.println(" ");
         this.checkAtk();
         this.checkRoar();
         this.checkMove();
@@ -39,7 +40,6 @@ public class Ia {
 
     public void checkRoar() {
         if (this.ptimo.getDominance() < 31 && this.range > 3 && this.range < 10) {
-            System.out.println("rugis");
             this.probaRoar = 60;
         }
     }
@@ -77,21 +77,19 @@ public class Ia {
         for (int i = 0; i < allProba.length; i++) {
             if (allProba[i] >= allProba[bigNumIndex]) bigNumIndex = i;
         }
-        System.out.println(bigNumIndex);
+        // System.out.println(bigNumIndex);
         this.makeDecision(bigNumIndex);
     }
 
     public void makeDecision(int index) {
         switch (index) {
             case 0 :
-                System.out.println("roar");
                 this.ptimo.roar();
                 break;
             case 1 :
                 this.ptimo.attack();
                 break;
             case 2 : 
-                System.out.println("move");
                 this.ptimo.moveAway(this.game);
                 break;
             case 3 :
@@ -99,7 +97,6 @@ public class Ia {
                 this.ptimo.magicAttack();
                 break;
             default : 
-                System.out.println("roar");
                 this.ptimo.roar();
         }
     }

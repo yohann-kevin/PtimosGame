@@ -81,6 +81,7 @@ public class Game {
     }
 
     public void startRound() {
+        System.out.println(" ");
         System.out.println(this.player.getName() + " (" + this.player.getLife() + "pv)");
         System.out.println("Vous êtes à " + this.range + "m d'un " + this.ptimo.getType());
         System.out.println(" ");
@@ -104,6 +105,7 @@ public class Game {
             this.init();
         } else {
             this.usersResponse.userReadLine();
+            System.out.println(" ");
             this.checkUsersResponse(this.usersResponse);
             this.usersExitGame();
         }
