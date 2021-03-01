@@ -45,30 +45,27 @@ public class Human {
     // all method
     public void watching(Ptimos target) {
         GaugeStressAndDominance gauge = new GaugeStressAndDominance(target.getStress(), target.getDominance());
-        System.out.println("Stress perçu : ");
-        System.out.println(" ");
         gauge.gauge(true);
-        System.out.println(target.getStress() + " " + gauge.getFinalResult());
-        System.out.println(" ");
-        System.out.println("Dominance perçu : ");
-        System.out.println(" ");
+        System.out.println(target.getType() + " semble très " + gauge.getFinalResult());
         gauge.gauge(false);
-        System.out.println(target.getDominance() + " " + gauge.getFinalResult());
+        System.out.println("et très " + gauge.getFinalResult() + " !");
+
     }
 
     public int moveforward() {
-        System.out.println("Vous vous rapprocher");
-        return new RandomNum(3,8).generateRandomNum();
+        int rangeMove = new RandomNum(3,8).generateRandomNum();
+        System.out.println("Vous vous rapprocher de " + rangeMove + "m");
+        return rangeMove;
     }
 
     public void launchCandy(Ptimos target,int range) {
         this.candy--;
         if (this.candy > 0) {
             int candyPower = 70 / range;
-            int probaShot = new RandomNum(0, 100).generateRandomNum();
+            int probaShot = new RandomNum(0,  100).generateRandomNum();
             if (probaShot < candyPower) {
                 target.setStress(candyPower);
-                System.out.println(target.getType() + " perd " + candyPower + " point de stress");
+                System.out.println("vous lancer un bonbon qui enlève " + candyPower + " point de stress au " + target.getType());
             } else {
                 System.out.println("Vous feriez mieux d'apprendre à viser vous avez rater le " + target.getType());
             }
@@ -121,7 +118,7 @@ public class Human {
             System.out.println("- " + this.pokrandCaptured + " pokrand");
         } else {
             System.out.println("Vous n'avez pas capturer de ptimos pour le moment.");
-        }        
+        }
     }
 
     // public void escape() {}

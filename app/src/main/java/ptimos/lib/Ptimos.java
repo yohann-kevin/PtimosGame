@@ -37,7 +37,7 @@ abstract public class Ptimos {
 
     // all method
     public void feedback(Game game) {
-        System.out.println(this.type + " réagis !");
+        // System.out.println(this.type + " réagis !");
         Ia ia = new Ia(this.type,game,this);
         ia.launchIa();
     }

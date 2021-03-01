@@ -20,7 +20,6 @@ public class Ia {
     }
 
     public void launchIa() {
-        System.out.println(this.type + " démarrage ia");
         this.checkAtk();
         this.checkRoar();
         this.checkMove();
@@ -30,7 +29,6 @@ public class Ia {
 
     public void checkAtk() {
         if (this.ptimo.getDominance() > 55 || this.ptimo.getStress() > 85) {
-            System.out.println("atk");
             this.probaAtk = 60;
         } else if (this.ptimo.getDominance() > 30 && this.ptimo.getDominance() < 56) {
             this.probaAtk = 30;
@@ -67,14 +65,14 @@ public class Ia {
     }
 
     public void getHighProba() {
-        System.out.println("dominance : " + this.ptimo.getDominance());
-        System.out.println("stress : " + this.ptimo.getStress());
-        System.out.println("range : " + this.range);
+        // System.out.println("dominance : " + this.ptimo.getDominance());
+        // System.out.println("stress : " + this.ptimo.getStress());
+        // System.out.println("range : " + this.range);
         int[] allProba = {this.probaRoar,this.probaAtk,this.probaMove,this.probaAtkMagic};
-        System.out.println("probaRoar : " + this.probaRoar);
-        System.out.println("probaAtk : " + this.probaAtk);
-        System.out.println("probaMove : " + this.probaMove);
-        System.out.println("probaAtkMagic : " + this.probaAtkMagic);
+        // System.out.println("probaRoar : " + this.probaRoar);
+        // System.out.println("probaAtk : " + this.probaAtk);
+        // System.out.println("probaMove : " + this.probaMove);
+        // System.out.println("probaAtkMagic : " + this.probaAtkMagic);
         int bigNumIndex = 0;
         for (int i = 0; i < allProba.length; i++) {
             if (allProba[i] >= allProba[bigNumIndex]) bigNumIndex = i;
@@ -90,7 +88,6 @@ public class Ia {
                 this.ptimo.roar();
                 break;
             case 1 :
-                System.out.println("atk");
                 this.ptimo.attack();
                 break;
             case 2 : 

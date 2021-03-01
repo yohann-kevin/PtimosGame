@@ -43,7 +43,7 @@ public class UsersReadLine {
                 this.isExit = true;
                 break;
             case "o" :
-                System.out.println("Le jeux continue");
+                // System.out.println("Le jeux continue");
                 this.isStartFight = true;
                 break;
             case "n" :

@@ -119,7 +119,7 @@ public class Game {
     }
 
     public void gameOver() {
-        System.out.println(ANSI_RED + "plop");
+        System.out.println(ANSI_RED);
         System.out.println("plop");
         System.out.println("éééééé");
         // AnsiConsole.out().println("Hello world");
