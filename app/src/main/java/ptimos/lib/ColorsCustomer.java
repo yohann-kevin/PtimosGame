@@ -7,7 +7,7 @@ public class ColorsCustomer {
     public Color ANSI_RED = Color.RED;
     public Color ANSI_GREEN = Color.GREEN;
     public Color ANSI_YELLOW = Color.YELLOW;
-    public Color ANSI_BLUE = Color.BLUE;
+    public Color ANSI_BLUE = Color.CYAN;
 
     public void initJansi() {
         AnsiConsole.systemInstall();

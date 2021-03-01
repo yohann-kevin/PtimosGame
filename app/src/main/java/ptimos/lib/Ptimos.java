@@ -1,12 +1,14 @@
 package ptimos.lib;
 
 import ptimos.Game;
+import static org.fusesource.jansi.Ansi.*;
 
 abstract public class Ptimos {
     String type;
     protected int stress;
     protected int dominance;
     Human target;
+    public ColorsCustomer colorCmd = new ColorsCustomer();
 
     public Ptimos(String type,Human target) {
         this.type = type;
@@ -46,22 +48,22 @@ abstract public class Ptimos {
         if (this.dominance > 100) this.dominance = 100;
         this.stress -= bonus;
         if (this.stress < 0) this.stress = 0;
-        System.out.println(this.getType() + " pousse un cri féroce qui le rend plus sûr de lui");
+        System.out.println(ansi().fg(this.colorCmd.red()).a(this.getType() + " pousse un cri féroce qui le rend plus sûr de lui").reset());
     }
 
     public void attack() {
         int dps = new RandomNum(0, 20).generateRandomNum();
-        System.out.println("Le " + this.getType() + " passe à l'attaque");
+        System.out.println(ansi().fg(this.colorCmd.red()).a("Le " + this.getType() + " passe à l'attaque").reset());
         this.target.setLife(dps);
     }
 
     public void moveAway(Game game) {
         int move = new RandomNum(2, 5).generateRandomNum();
-        System.out.println("Le " + this.getType() + " s'éloigne de " + move + "m");
+        System.out.println(ansi().fg(this.colorCmd.yellow()).a("Le " + this.getType() + " s'éloigne de " + move + "m").reset());
         game.range += move;
     }
 
     public void magicAttack() {
-        System.out.println("atack magic");
+        System.out.println(ansi().fg(this.colorCmd.blue()).a("atack magic").reset());
     }
 }

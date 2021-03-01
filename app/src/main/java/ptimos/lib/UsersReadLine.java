@@ -1,6 +1,7 @@
 package ptimos.lib;
 
 import java.util.Scanner;
+import static org.fusesource.jansi.Ansi.*;
 
 public class UsersReadLine {
     public boolean isStartFight;
@@ -12,6 +13,7 @@ public class UsersReadLine {
     public boolean isEscape;
     public boolean isExit;
     public boolean isChecking;
+    public ColorsCustomer colorCmd = new ColorsCustomer();
 
     public void userReadLine() {
         Object response = new Scanner(System.in).nextLine();
@@ -32,7 +34,7 @@ public class UsersReadLine {
     }
 
     public void errorResponse() {
-        System.out.println("Le programme ne reconnait pas votre réponse");
+        System.out.println(ansi().fg(this.colorCmd.red()).a("Le programme ne reconnait pas votre réponse").reset());
     }
 
     public void manageResponseMeet(Object response) {

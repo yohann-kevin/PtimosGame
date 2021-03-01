@@ -12,7 +12,7 @@ import ptimos.lib.UsersReadLine;
 // test
 import org.fusesource.jansi.AnsiConsole;
 import static org.fusesource.jansi.Ansi.*;
-import static org.fusesource.jansi.Ansi.Color.*;
+
 
 public class Game {
     public Human player;
@@ -30,10 +30,10 @@ public class Game {
         this.selectPtimos();
         this.range = new RandomNum(8, 15).generateRandomNum();
         System.out.println("Un " + this.ptimo.getType() + " se cache dans ce bois, voulez-vous le capturer ?");
-        System.out.println("[o] - Oui");
-        System.out.println("[n] - Non");
-        System.out.println("[r] - Regarder combien de ptimos vous avez capturer");
-        System.out.println("[q] - Quitter");
+        System.out.println(ansi().fg(this.colorCmd.green()).a("[o] - Oui").reset());
+        System.out.println(ansi().fg(this.colorCmd.yellow()).a("[n] - Non").reset());
+        System.out.println(ansi().fg(this.colorCmd.blue()).a("[r] - Regarder combien de ptimos vous avez capturer").reset());
+        System.out.println(ansi().fg(this.colorCmd.red()).a("[q] - Quitter").reset());
         usersResponse.userReadLine();
         this.checkUsersResponse(this.usersResponse);
     }
