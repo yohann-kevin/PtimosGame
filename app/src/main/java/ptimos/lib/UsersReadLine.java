@@ -19,7 +19,6 @@ public class UsersReadLine {
     }
 
     public void verifyResponse(Object response) {
-        // boolean checked = false;
         if (response.getClass().getName() == "java.lang.String" && ((String) response).length() == 1) {
             try {
                 Integer responseNum = Integer.parseInt((String) response);

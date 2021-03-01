@@ -94,7 +94,7 @@ public class Game {
         System.out.println("[4] - Faire une danse imprésionnnate");
         System.out.println("[5] - Tirer une flechette endormante (x" + this.player.getSleepingArrow() + ")");
         System.out.println(" ");
-        System.out.println("[0] - Laisser le " + this.ptimo.getType() + " en liberté");
+        System.out.println(ansi().fg(this.colorCmd.red()).a("[0] - Laisser le " + this.ptimo.getType() + " en liberté").reset());
         manageEndgame();
     }
 
@@ -117,7 +117,7 @@ public class Game {
     public void usersExitGame() {
         if (!this.usersResponse.isExit) {
             this.ptimo.feedback(this);
-            this.startRound();  
+            this.startRound();
         } else {
             this.gameOver();
         }

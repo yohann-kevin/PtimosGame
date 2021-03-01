@@ -41,4 +41,35 @@ public class ColorsCustomer {
         }
     }
 
+    public Color checkStressAndDominance(String value) {
+        if (value.equals("(détendu)") || value.equals("(inoffensif)")) {
+            return this.green();
+        } else if (value.equals("(mefiant)") || value.equals("(neutre)")) {
+            return this.blue();
+        } else if (value.equals("(nerveux)") || value.equals("féroce")) {
+            return this.yellow();
+        } else {
+            return this.red();
+        }
+    }
+
+    public Color checkAllPtimos(int numberPtimos) {
+        if (numberPtimos > 5) {
+            return this.green();
+        } else if(numberPtimos > 0 && numberPtimos < 5) {
+            return this.yellow();
+        } else {
+            return this.red();
+        }
+    }
+
+    public Color checkPtimo(int numPtimo) {
+        if (numPtimo > 3) {
+            return this.green();
+        } else if (numPtimo < 3 && numPtimo > 0) {
+            return this.yellow();
+        } else {
+            return this.red();  
+        }
+    }
 }
