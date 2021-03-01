@@ -54,7 +54,7 @@ public class ColorsCustomer {
     }
 
     public Color checkAllPtimos(int numberPtimos) {
-        if (numberPtimos > 5) {
+        if (numberPtimos > 4) {
             return this.green();
         } else if(numberPtimos > 0 && numberPtimos < 5) {
             return this.yellow();
@@ -66,7 +66,7 @@ public class ColorsCustomer {
     public Color checkPtimo(int numPtimo) {
         if (numPtimo > 3) {
             return this.green();
-        } else if (numPtimo < 3 && numPtimo > 0) {
+        } else if (numPtimo < 4 && numPtimo > 0) {
             return this.yellow();
         } else {
             return this.red();  
