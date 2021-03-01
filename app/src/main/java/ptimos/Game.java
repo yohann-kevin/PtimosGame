@@ -94,7 +94,7 @@ public class Game {
         } else if(this.range <= 0) {
             player.capture(this.ptimo);
             this.init();
-        } else if(this.range > 15) {
+        } else if(this.range > 14) {
             this.init();
         } else {
             this.usersResponse.userReadLine();
