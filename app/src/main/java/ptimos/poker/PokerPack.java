@@ -1,5 +1,7 @@
 package ptimos.poker;
 
+import ptimos.lib.RandomNum;
+
 // roi -> k -> king
 // dame -> d -> dame
 // valet -> v -> valet
@@ -32,14 +34,13 @@ public class PokerPack {
                 this.allCards[j + (i * 13)] = result;
             }
         }
-        this.testCard();
     }
 
-    public void testCard() {
-        for (int i = 0; i < this.allCards.length; i++) {
-            System.out.println(this.allCards[i]);
-        }
-    }
+    // public void testCard() {
+    //     for (int i = 0; i < this.allCards.length; i++) {
+    //         System.out.println(this.allCards[i]);
+    //     }
+    // }
 
     public String getSymbol(int index) {
         if (index == 0) {
@@ -63,5 +64,15 @@ public class PokerPack {
         } else {
             return "K";  
         }
+    }
+
+    public String[] getFiveCards() {
+        this.initPack();
+        String[] main = new String[5];
+        for (int i = 0; i < main.length; i++) {
+            int index = new RandomNum(0, this.allCards.length).generateRandomNum();
+            main[i] = this.allCards[index];
+        }
+        return main;
     }
 }
