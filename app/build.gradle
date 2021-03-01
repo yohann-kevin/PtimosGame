@@ -22,6 +22,9 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
+
+    // use jansi 
+    implementation group: 'org.fusesource.jansi', name: 'jansi', version: '1.8'
 }
 
 application {

@@ -6,11 +6,17 @@ import ptimos.lib.Ptimos;
 import ptimos.lib.RandomNum;
 import ptimos.lib.UsersReadLine;
 
+// test
+import org.fusesource.jansi.AnsiConsole;
+import static org.fusesource.jansi.Ansi.*;
+import static org.fusesource.jansi.Ansi.Color.*;
+
 public class Game {
     public Human player;
     public Ptimos ptimo;
     public UsersReadLine usersResponse = new UsersReadLine();
     public int range;
+    public final String ANSI_RED = "\033[31m";
 
     public Game(Human player) {
         this.player = player;
@@ -113,6 +119,8 @@ public class Game {
     }
 
     public void gameOver() {
-        System.out.println("gameOver");
+        System.out.println(ANSI_RED + "plop");
+        System.out.println("plop");
+        // AnsiConsole.out().println("Hello world");
     }
 }
