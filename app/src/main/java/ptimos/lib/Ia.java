@@ -65,19 +65,12 @@ public class Ia {
     }
 
     public void getHighProba() {
-        // System.out.println("dominance : " + this.ptimo.getDominance());
-        // System.out.println("stress : " + this.ptimo.getStress());
-        // System.out.println("range : " + this.range);
         int[] allProba = {this.probaRoar,this.probaAtk,this.probaMove,this.probaAtkMagic};
-        // System.out.println("probaRoar : " + this.probaRoar);
-        // System.out.println("probaAtk : " + this.probaAtk);
-        // System.out.println("probaMove : " + this.probaMove);
-        // System.out.println("probaAtkMagic : " + this.probaAtkMagic);
+        // printProba();
         int bigNumIndex = 0;
         for (int i = 0; i < allProba.length; i++) {
             if (allProba[i] >= allProba[bigNumIndex]) bigNumIndex = i;
         }
-        // System.out.println(bigNumIndex);
         this.makeDecision(bigNumIndex);
     }
 
@@ -99,5 +92,16 @@ public class Ia {
             default : 
                 this.ptimo.roar();
         }
+    }
+
+    public void printProba() {
+        System.out.println("dominance : " + this.ptimo.getDominance());
+        System.out.println("stress : " + this.ptimo.getStress());
+        System.out.println("range : " + this.range);
+
+        System.out.println("probaRoar : " + this.probaRoar);
+        System.out.println("probaAtk : " + this.probaAtk);
+        System.out.println("probaMove : " + this.probaMove);
+        System.out.println("probaAtkMagic : " + this.probaAtkMagic);
     }
 }
