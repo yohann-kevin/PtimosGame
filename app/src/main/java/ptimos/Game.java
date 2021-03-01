@@ -1,6 +1,9 @@
 package ptimos;
 
+// import org.fusesource.jansi.Ansi.Color;
+
 import ptimos.factory.PtimoFactory;
+import ptimos.lib.ColorsCustomer;
 import ptimos.lib.Human;
 import ptimos.lib.Ptimos;
 import ptimos.lib.RandomNum;
@@ -16,13 +19,14 @@ public class Game {
     public Ptimos ptimo;
     public UsersReadLine usersResponse = new UsersReadLine();
     public int range;
-    public final String ANSI_RED = "\033[31m";
+    public ColorsCustomer colorCmd = new ColorsCustomer();
 
     public Game(Human player) {
         this.player = player;
     }
 
     public void init() {
+        colorCmd.initJansi();
         this.selectPtimos();
         this.range = new RandomNum(8, 15).generateRandomNum();
         System.out.println("Un " + this.ptimo.getType() + " se cache dans ce bois, voulez-vous le capturer ?");
@@ -48,7 +52,6 @@ public class Game {
             System.out.println("pokrand");
             this.ptimo = factoryPtimo.getPtimo("pokrand",this.player);
         }
-        
     }
 
     public void checkUsersResponse(UsersReadLine response) {
@@ -82,7 +85,7 @@ public class Game {
 
     public void startRound() {
         System.out.println(" ");
-        System.out.println(this.player.getName() + " (" + this.player.getLife() + "pv)");
+        System.out.println(ansi().fg(this.colorCmd.checkLifeForColor(this.player.getLife())).a(this.player.getName() + " (" + this.player.getLife() + "pv)").reset());
         System.out.println("Vous êtes à " + this.range + "m d'un " + this.ptimo.getType());
         System.out.println(" ");
         System.out.println("[1] - Observer");
@@ -121,9 +124,8 @@ public class Game {
     }
 
     public void gameOver() {
-        System.out.println(ANSI_RED);
-        System.out.println("plop");
+        AnsiConsole.systemInstall();
         System.out.println("éééééé");
-        // AnsiConsole.out().println("Hello world");
+        System.out.println(ansi().fg(this.colorCmd.red()).a("Game Over !").reset());
     }
 }
