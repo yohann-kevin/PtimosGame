@@ -8,7 +8,7 @@ public class Human {
     private int life = 100;
     private int ptimoCage = 10;
     private int candy = 30;
-    private int sleepingArrow = 1;
+    private int sleepingArrow = 5;
     private int sacbleuCaptured;
     private int pyraliaCaptured;
     private int pokrandCaptured;
@@ -42,6 +42,14 @@ public class Human {
 
     public int getSleepingArrow() {
         return this.sleepingArrow;
+    }
+
+    public int getSacBleuCaptured() {
+        return this.sacbleuCaptured;
+    }
+
+    public int getPyraliaCaptured() {
+        return this.pyraliaCaptured;
     }
 
     // all method
@@ -111,7 +119,7 @@ public class Human {
     }
 
     public void checkMyPtimos() {
-        int allPtimos = this.sacbleuCaptured + this.pyraliaCaptured + this.pokrandCaptured;
+        int allPtimos = this.getAllPtimos();
         if (allPtimos > 0) {
             System.out.println(ansi().fg(this.colorCmd.checkAllPtimos(allPtimos)).a("Vous avez capturer " + allPtimos + " ptimos.").reset());
             System.out.println(ansi().fg(this.colorCmd.checkPtimo(this.sacbleuCaptured)).a("- " + this.sacbleuCaptured + " sacbleu").reset());
@@ -120,5 +128,10 @@ public class Human {
         } else {
             System.out.println(ansi().fg(this.colorCmd.red()).a("Vous n'avez pas capturer de ptimos pour le moment.").reset());
         }
+    }
+
+    public int getAllPtimos() {
+        int allPtimos = this.sacbleuCaptured + this.pyraliaCaptured + this.pokrandCaptured;
+        return allPtimos;
     }
 }

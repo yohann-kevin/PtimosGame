@@ -43,14 +43,15 @@ public class Game {
         PtimoFactory factoryPtimo = PtimoFactory.getPtimoFactory();
 
         if (result < 61) {
-            System.out.println("sacbleu");
             this.ptimo = factoryPtimo.getPtimo("sacbleu",this.player);
         } else if (result > 61 && result < 91) {
-            System.out.println("pyralia");
             this.ptimo = factoryPtimo.getPtimo("pyralia",this.player);
         } else {
-            System.out.println("pokrand");
-            this.ptimo = factoryPtimo.getPtimo("pokrand",this.player);
+            if (this.player.getAllPtimos() > 4 && this.player.getSacBleuCaptured() > 0 && this.player.getPyraliaCaptured() > 0) {
+                this.ptimo = factoryPtimo.getPtimo("pokrand",this.player);
+            } else {
+                this.selectPtimos();
+            }
         }
     }
 
