@@ -37,6 +37,13 @@ public class ComboTest {
         assertEquals(true,combo.checkPair());
     }
 
+    @Test public void testDoublePair2() {
+        String[] cards = {"4-c","4-s","K-d","4-d","4-h"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(false,combo.checkPair());
+    }
+
     @Test public void testBrelan1() {
         String[] cards = {"5-c","5-s","K-d","5-d","4-h"};
         Combo combo = new Combo(cards);
@@ -105,5 +112,19 @@ public class ComboTest {
         Combo combo = new Combo(cards);
         combo.testCombo();
         assertEquals(false,combo.checkFull());
+    }
+
+    @Test public void testSquare1() {
+        String[] cards = {"8-s","8-c","3-c","8-h","8-d"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(true,combo.checkSquare());
+    }
+
+    @Test public void testSquare2() {
+        String[] cards = {"7-s","7-c","3-c","8-h","8-d"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(false,combo.checkSquare());
     }
 }
