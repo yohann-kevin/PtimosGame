@@ -61,8 +61,8 @@ public class Combo {
         int counter = 0;
         for (int i = 0; i < this.value.length; i++) {
             if ( i != 0) {
-                int value = convertToInt(this.value[i]);
-                int oldValue = convertToInt(this.value[i - 1]);
+                int value = convertSymbolToInt(this.value[i]);
+                int oldValue = convertSymbolToInt(this.value[i - 1]);
                 if (value == (oldValue + 1)) counter++;
             }
         }
@@ -70,7 +70,7 @@ public class Combo {
         return false;
     }
 
-    public int  convertToInt(String valueString) {
+    public int  convertSymbolToInt(String valueString) {
         int value = 0;
         if (valueString.equals("A")) {
             value = 1;
@@ -84,6 +84,17 @@ public class Combo {
             value = Integer.parseInt(valueString);
         }
         return value;
+    }
+
+    public boolean checkFlush() {
+        int counter = 0;
+        for (int i = 0; i < this.symbol.length; i++) {
+            for (int j = 0; j < this.symbol.length; j++) {
+                if (i != j && this.symbol[i].equals(this.symbol[j])) counter++;
+            }
+        }
+        if ((counter / 4) == 5) return true;
+        return false;
     }
 
 

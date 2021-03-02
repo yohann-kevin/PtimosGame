@@ -49,4 +49,32 @@ public class ComboTest {
         combo.testCombo();
         assertEquals(true,combo.checkQuinte());
     }
+
+    @Test public void testQuinte2() {
+        String[] cards = {"A-c","2-s","3-d","4-d","5-h"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(true,combo.checkQuinte());
+    }
+
+    @Test public void testQuinte3() {
+        String[] cards = {"8-c","2-s","3-d","4-d","5-h"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(false,combo.checkQuinte());
+    }
+
+    @Test public void testFlush1() {
+        String[] cards = {"8-c","2-c","3-c","4-c","5-c"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(true,combo.checkFlush());
+    }
+
+    @Test public void testFlush2() {
+        String[] cards = {"8-s","2-c","3-c","4-c","5-c"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(false,combo.checkFlush());
+    }
 }
