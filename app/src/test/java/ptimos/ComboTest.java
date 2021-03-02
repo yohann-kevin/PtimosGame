@@ -127,4 +127,18 @@ public class ComboTest {
         combo.testCombo();
         assertEquals(false,combo.checkSquare());
     }
+
+    @Test public void testQuinteFlush1() {
+        String[] cards = {"2-c","3-c","4-c","5-c","6-c"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(true,combo.checkQuinteFlush());
+    }
+
+    @Test public void testQuinteFlush2() {
+        String[] cards = {"2-c","3-c","4-c","5-c","6-h"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(false,combo.checkQuinteFlush());
+    }
 }

@@ -124,4 +124,9 @@ public class Combo {
         if (!this.checkPair() && this.pairOrSquare()) return true;
         return false;
     }
+
+    public boolean checkQuinteFlush() {
+        if (this.checkQuinte() && this.checkFlush()) return true;
+        return false;
+    }
 }
