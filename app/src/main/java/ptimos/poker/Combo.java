@@ -9,7 +9,7 @@ public class Combo {
         this.cards = mainCards;
     }
 
-    public void testCombo() {
+    public void initCombo() {
         String[] tab = new String[2];
         for (int i = 0; i < this.cards.length; i++) {
             System.out.println("Carte : " + this.cards[i]);
@@ -22,6 +22,25 @@ public class Combo {
             System.out.println("Symbol : " + this.symbol[i]);
         }
         this.checkPair();
+    }
+
+    public String checkCombo() {
+        if (this.checkQuinteFlush()) {
+            return "quinte-flush";
+        } else if (this.checkFull()) {
+            return "full";
+        } else if (this.checkFlush()) {
+            return "flush";
+        } else if (this.checkQuinte()) {
+            return "quinte";
+        } else if (this.checkBrelan()) {
+            return "brelan";
+        } else if (this.checkSquare()) {
+            return "carré";
+        } else if (this.checkPair()) {
+            return "pair";
+        }
+        return "";
     }
 
     public boolean checkPair() {
@@ -100,12 +119,6 @@ public class Combo {
         return false;
     }
 
-    // method temporaire
-    public boolean checkFull() {
-        if (checkPair() && checkBrelan()) return true;
-        return false;
-    }
-
     public boolean pairOrSquare() {
         int counter = 0;
         for (int i = 0; i < 2; i++) {
@@ -127,6 +140,12 @@ public class Combo {
 
     public boolean checkQuinteFlush() {
         if (this.checkQuinte() && this.checkFlush()) return true;
+        return false;
+    }
+
+    // method temporaire
+    public boolean checkFull() {
+        if (this.checkPair() && this.checkBrelan()) return true;
         return false;
     }
 }

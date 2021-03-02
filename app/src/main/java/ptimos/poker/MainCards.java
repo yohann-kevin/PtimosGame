@@ -6,6 +6,6 @@ public class MainCards extends PokerPack {
     public void getMainCards() {
         this.cards = this.getFiveCards();
         Combo combo = new Combo(this.cards);
-        combo.testCombo();
+        combo.initCombo();
     }
 }
