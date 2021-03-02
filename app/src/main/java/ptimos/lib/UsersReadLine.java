@@ -20,6 +20,7 @@ public class UsersReadLine {
         this.verifyResponse(response);
     }
 
+    // vérifie le type et la taille de la réponse
     public void verifyResponse(Object response) {
         if (response.getClass().getName() == "java.lang.String" && ((String) response).length() == 1) {
             try {
@@ -33,10 +34,12 @@ public class UsersReadLine {
         }
     }
 
+    // message d'erreur
     public void errorResponse() {
         System.out.println(ansi().fg(this.colorCmd.red()).a("Le programme ne reconnait pas votre réponse").reset());
     }
 
+    // gère les reponse utilisateur pendant le combat
     public void manageResponseMeet(Object response) {
         switch ((String) response) {
             case "q" :
@@ -59,6 +62,7 @@ public class UsersReadLine {
         }
     }
 
+    // gère les reponse utilisateur pendant le combat
     public void manageResponseFight(Integer response) {
         switch (response) {
             case 1 :

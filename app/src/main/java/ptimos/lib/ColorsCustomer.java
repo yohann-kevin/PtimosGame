@@ -29,6 +29,7 @@ public class ColorsCustomer {
         return ANSI_YELLOW;
     }
 
+    // renvoie une couleur en fonction de la vie
     public Color checkLifeForColor(int life) {
         if (life > 75) {
             return this.green();
@@ -41,6 +42,7 @@ public class ColorsCustomer {
         }
     }
 
+    // renvoie une couleur par rapport au stress et de la dominance
     public Color checkStressAndDominance(String value) {
         if (value.equals("(détendu)") || value.equals("(inoffensif)")) {
             return this.green();
@@ -53,6 +55,7 @@ public class ColorsCustomer {
         }
     }
 
+    // renvoie une couleur en fonction du nombre de ptimos total
     public Color checkAllPtimos(int numberPtimos) {
         if (numberPtimos > 4) {
             return this.green();
@@ -63,6 +66,7 @@ public class ColorsCustomer {
         }
     }
 
+    // renvoie une couleur en fonction du nombre de ptimo
     public Color checkPtimo(int numPtimo) {
         if (numPtimo > 3) {
             return this.green();

@@ -23,6 +23,7 @@ public class Game {
         this.player = player;
     }
 
+    // initialise le jeux
     public void init() {
         colorCmd.initJansi();
         this.selectPtimos();
@@ -36,6 +37,7 @@ public class Game {
         this.checkUsersResponse(this.usersResponse);
     }
 
+    // sélctionne un ptimo aléatoirement
     public void selectPtimos() {
         int result = new RandomNum(1, 100).generateRandomNum();
         PtimoFactory factoryPtimo = PtimoFactory.getPtimoFactory();
@@ -54,6 +56,7 @@ public class Game {
         }
     }
 
+    // vérifie les réponse utilisateurs
     public void checkUsersResponse(UsersReadLine response) {
         if (response.isStartFight) {
             response.isStartFight = false;
@@ -83,6 +86,7 @@ public class Game {
         }
     }
 
+    // démarre un round
     public void startRound() {
         System.out.println(" ");
         System.out.println(ansi().fg(this.colorCmd.checkLifeForColor(this.player.getLife())).a(this.player.getName() + " (" + this.player.getLife() + "pv)").reset());
@@ -98,11 +102,12 @@ public class Game {
         manageEndgame();
     }
 
+    // gère la fin du jeux 
     public void manageEndgame() {
         if (this.player.getLife() <= 0) {
             this.gameOver();
         } else if(this.range <= 0) {
-            player.capture(this.ptimo);
+            this.player.capture(this.ptimo);
             this.init();
         } else if(this.range > 14) {
             this.init();
@@ -114,6 +119,7 @@ public class Game {
         }
     }
 
+    // vérifie si l'utilisateur vuex quitter le jeux
     public void usersExitGame() {
         if (!this.usersResponse.isExit) {
             this.ptimo.feedback(this);

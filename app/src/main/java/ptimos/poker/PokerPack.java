@@ -5,6 +5,7 @@ import ptimos.lib.RandomNum;
 public class PokerPack {
     private String[] allCards = new String[52];
 
+    // création du paquet de 52 carte
     public void initPack() {
         int counter = 0;
         int index = 13;
@@ -26,6 +27,7 @@ public class PokerPack {
         }
     }
 
+    // convertie certaine valeur en symbol
     public String getSymbol(int index) {
         if (index == 0) {
             return "d";
@@ -38,6 +40,7 @@ public class PokerPack {
         }
     }
 
+    // convertie certaine valeur en symbol
     public String transformValue(int value) {
         if (value == 1) {
             return "A";
@@ -50,6 +53,7 @@ public class PokerPack {
         }
     }
 
+    // récupère 5 cartes au hasard dans le paquet
     public String[] getFiveCards() {
         this.initPack();
         String[] main = new String[5];

@@ -1,7 +1,5 @@
 package ptimos.lib;
 
-import static org.fusesource.jansi.Ansi.*;
-
 public class SacBleu extends Ptimos {
     
     public SacBleu(String type,Human target) {
@@ -10,6 +8,8 @@ public class SacBleu extends Ptimos {
         this.stress = (new RandomNum(50, 80).generateRandomNum()) + this.bonusMalusSacbleu();
     }
 
+    // calcul le bonus et malus de sacbleu
+    // sacbleu est plus stresser et moin dominant
     public int bonusMalusSacbleu() {
         int bonusMalus = new RandomNum(0, 10).generateRandomNum();
         return bonusMalus;

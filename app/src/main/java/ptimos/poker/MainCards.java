@@ -7,6 +7,7 @@ public class MainCards extends PokerPack {
         return this.cards;
     }
 
+    // récupère 5 cartes et lance le combo
     public String getMainCards() {
         this.cards = this.getFiveCards();
         Combo combo = new Combo(this.cards);

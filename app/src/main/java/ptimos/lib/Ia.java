@@ -19,6 +19,7 @@ public class Ia {
         this.ptimo = ptimo;
     }
 
+    // démarre l'IA
     public void launchIa() {
         System.out.println(" ");
         this.checkAtk();
@@ -28,6 +29,7 @@ public class Ia {
         this.getHighProba();
     }
 
+    // calcul la proba attaque
     public void checkAtk() {
         if (this.ptimo.getDominance() > 55 || this.ptimo.getStress() > 85) {
             this.probaAtk = 60;
@@ -38,12 +40,14 @@ public class Ia {
         }
     }
 
+    // calcul la proba roar
     public void checkRoar() {
         if (this.ptimo.getDominance() < 31 && this.range > 3 && this.range < 10) {
             this.probaRoar = 60;
         }
     }
 
+    // calcul la proba move
     public void checkMove() {
         if (this.ptimo.getStress() > 85) {
             this.probaAtkMagic = 30;
@@ -56,6 +60,7 @@ public class Ia {
         }
     }
 
+    // calcul la proba d'attaque magique
     public void checkAtkMagic() {
         if (this.ptimo.getDominance() == 100) {
             this.probaAtkMagic = 100;
@@ -64,6 +69,7 @@ public class Ia {
         }
     }
 
+    // récupère la proba la plus éléver
     public void getHighProba() {
         int[] allProba = {this.probaRoar,this.probaAtk,this.probaMove,this.probaAtkMagic};
         int bigNumIndex = 0;
@@ -73,6 +79,7 @@ public class Ia {
         this.makeDecision(bigNumIndex);
     }
 
+    // décide de l'action a activer enf fonction de l'index de la meilleur proba
     public void makeDecision(int index) {
         switch (index) {
             case 0 :
@@ -92,6 +99,7 @@ public class Ia {
         }
     }
 
+    // affiche les proba (debug)
     public void printProba() {
         System.out.println("dominance : " + this.ptimo.getDominance());
         System.out.println("stress : " + this.ptimo.getStress());

@@ -11,10 +11,12 @@ public class PtimoFactory {
 
     private PtimoFactory() {};
 
+    // retourne l'instance
     public static PtimoFactory getPtimoFactory() {
         return instance;
     }
 
+    // choisi la bonne instance a crée en fonction du type
     public Ptimos getPtimo(String type,Human target) {
         if (type.equals("sacbleu")) {
             return new SacBleu("sacbleu",target);

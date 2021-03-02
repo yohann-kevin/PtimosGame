@@ -46,6 +46,7 @@ abstract public class Ptimos {
         if (this.game.range > 0) ia.launchIa();
     }
 
+    // rugis
     public void roar() {
         int bonus  = new RandomNum(0, 20).generateRandomNum();
         this.dominance += bonus;
@@ -55,18 +56,21 @@ abstract public class Ptimos {
         System.out.println(ansi().fg(this.colorCmd.red()).a(this.getType() + " pousse un cri féroce qui le rend plus sûr de lui").reset());
     }
 
+    // attaque
     public void attack() {
         int dps = new RandomNum(0, 20).generateRandomNum();
         System.out.println(ansi().fg(this.colorCmd.red()).a("Le " + this.getType() + " passe à l'attaque").reset());
         this.target.setLife(dps);
     }
 
+    // recule
     public void moveAway(Game game) {
         int move = new RandomNum(2, 5).generateRandomNum();
         System.out.println(ansi().fg(this.colorCmd.yellow()).a("Le " + this.getType() + " s'éloigne de " + move + "m").reset());
         game.range += move;
     }
 
+    // lance une attaque magique
     public void magicAttack() {
         if (this.getType().equals("pokrand")) {
             this.checkMainPoker();
@@ -75,6 +79,7 @@ abstract public class Ptimos {
         }
     }
 
+    // récupère et affiche la main de poker
     public void checkMainPoker() {
         System.out.println("Le " + this.getType() + " sort un jeux de poker");
         MainCards poker = new MainCards();
@@ -85,6 +90,7 @@ abstract public class Ptimos {
         this.verifyCombo(result);
     }
 
+    // vérifie les combo et lance une method en fonction de ce qui es renvoyer
     public void verifyCombo(String result) {
         if (result.equals("assome")) {
             System.out.println("Le " + this.getType() + " vous assome et s'en va avec vos ptimos :)");
@@ -99,6 +105,7 @@ abstract public class Ptimos {
         }
     }
 
+    // attaque magique normal
     public void atkMagicNormal() {
         int dps = new RandomNum(0, 20).generateRandomNum();
         this.target.setLife(dps);

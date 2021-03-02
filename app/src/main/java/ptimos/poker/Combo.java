@@ -9,6 +9,7 @@ public class Combo {
         this.cards = mainCards;
     }
 
+    // prépare le calcul des combo en séparant la valeur du symbole
     public void initCombo() {
         String[] tab = new String[2];
         for (int i = 0; i < this.cards.length; i++) {
@@ -18,6 +19,7 @@ public class Combo {
         }
     }
 
+    // vérifie tout les combo possible
     public String checkCombo() {
         String result = "";
         if (this.checkQuinteFlush()) {
@@ -38,6 +40,7 @@ public class Combo {
         return result;
     }
 
+    // décide d'une action a éxécuter en fonction du combo
     public String decideAction() {
         String result = this.checkCombo();
         if (result.equals("full") || result.equals("carré") || result.equals("quinte-flush")) {
@@ -49,6 +52,7 @@ public class Combo {
         }
     }
 
+    // vérifie si il ya une paire
     public boolean checkPair() {
         int counter = 0;
         for (int i = 0; i < this.value.length; i++) {
@@ -68,6 +72,7 @@ public class Combo {
         }
     }
 
+    // vérifie si il y a un brelan
     public boolean checkBrelan() {
         int counter = 0;
         for (int i = 0; i < this.value.length; i++) {
@@ -85,6 +90,7 @@ public class Combo {
         }
     }
 
+    // vérifie si il y a une quinte
     public boolean checkQuinte() {
         int counter = 0;
         for (int i = 0; i < this.value.length; i++) {
@@ -98,6 +104,7 @@ public class Combo {
         return false;
     }
 
+    // convertie les symbol en int pour faciliter la comparaison
     public int  convertSymbolToInt(String valueString) {
         int value = 0;
         if (valueString.equals("A")) {
@@ -114,6 +121,7 @@ public class Combo {
         return value;
     }
 
+    // vérifie si il y a un flush
     public boolean checkFlush() {
         int counter = 0;
         for (int i = 0; i < this.symbol.length; i++) {
@@ -125,6 +133,7 @@ public class Combo {
         return false;
     }
 
+    // method permettant de diférencier une paire d'un carré
     public boolean pairOrSquare() {
         int counter = 0;
         for (int i = 0; i < 2; i++) {
@@ -136,16 +145,19 @@ public class Combo {
         return true;
     }
 
+    // vérifie si il y a un carré
     public boolean checkSquare() {
         if (!this.checkPair() && this.pairOrSquare()) return true;
         return false;
     }
 
+    // vérifie si ya une quinte-flush
     public boolean checkQuinteFlush() {
         if (this.checkQuinte() && this.checkFlush()) return true;
         return false;
     }
 
+    // vérifie si ya un full
     public boolean checkFull() {
         if (this.checkPair() && this.checkBrelan()) return true;
         return false;

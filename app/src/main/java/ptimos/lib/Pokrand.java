@@ -1,7 +1,5 @@
 package ptimos.lib;
 
-import static org.fusesource.jansi.Ansi.*;
-
 public class Pokrand extends Ptimos {
     
     public Pokrand(String type,Human target) {

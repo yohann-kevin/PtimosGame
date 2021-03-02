@@ -8,6 +8,7 @@ public class RandomNum {
         this.max = max;
     }
 
+    // renvoie une valeur aléatoire entre le min et le max
     public int generateRandomNum() {
         double result = Math.random() * ( this.max - this.min ) + this.min;
         return (int) result;

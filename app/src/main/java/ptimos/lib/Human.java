@@ -65,6 +65,7 @@ public class Human {
     }
 
     // all method
+    // Observer
     public void watching(Ptimos target) {
         GaugeStressAndDominance gauge = new GaugeStressAndDominance(target.getStress(), target.getDominance());
         gauge.gauge(true);
@@ -73,12 +74,14 @@ public class Human {
         System.out.println(ansi().fg(this.colorCmd.checkStressAndDominance(gauge.getFinalResult())).a("et très " + gauge.getFinalResult() + " !").reset());
     }
 
+    // se rapprocher
     public int moveforward() {
         int rangeMove = new RandomNum(3,8).generateRandomNum();
         System.out.println(ansi().fg(this.colorCmd.green()).a("Vous vous rapprocher de " + rangeMove + "m").reset());
         return rangeMove;
     }
 
+    // lancer une friandise
     public void launchCandy(Ptimos target,int range) {
         this.candy--;
         if (this.candy > 0) {
@@ -96,6 +99,7 @@ public class Human {
         
     }
 
+    // une danse impressionante
     public void awesomeDance(Ptimos target) {
         int dancingPower = new RandomNum(7, 21).generateRandomNum();
         if (dancingPower < 15) {
@@ -107,6 +111,7 @@ public class Human {
         }
     }
 
+    // tire une fleche
     public void shotArrow(Ptimos target,Game game) {
         if (this.sleepingArrow > 0) {
             System.out.println(ansi().fg(this.colorCmd.green()).a("Vous tirez une fléchette endormante sur le " + target.getType()).reset());
@@ -117,6 +122,7 @@ public class Human {
         }
     }
 
+    // capture un ptimo
     public void capture(Ptimos target) {
         this.ptimoCage --;
         System.out.println(ansi().fg(this.colorCmd.green()).a("Vous avez capturer un " + target.getType()).reset());
@@ -130,6 +136,7 @@ public class Human {
         this.ptimoIsCaptured = true;
     }
 
+    // reagrde les ptimos capturer
     public void checkMyPtimos() {
         int allPtimos = this.getAllPtimos();
         if (allPtimos > 0) {
@@ -142,6 +149,7 @@ public class Human {
         }
     }
 
+    // calcul combien de ptimo juliette a apturer
     public int getAllPtimos() {
         int allPtimos = this.sacbleuCaptured + this.pyraliaCaptured + this.pokrandCaptured;
         return allPtimos;
