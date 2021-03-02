@@ -126,6 +126,7 @@ public class Human {
     // capture un ptimo
     public void capture(Ptimos target) {
         this.ptimoCage --;
+        System.out.println(" ");
         System.out.println(ansi().fg(this.colorCmd.green()).a("Vous avez capturer un " + target.getType()).reset());
         if (target.getType().equals("sacbleu")) {
             this.sacbleuCaptured++;

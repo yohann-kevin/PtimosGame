@@ -46,7 +46,7 @@ public class UsersReadLine {
         System.out.println(ansi().fg(this.colorCmd.red()).a("Le programme ne reconnait pas votre réponse").reset());
     }
 
-    // gère les reponse utilisateur pendant le combat
+    // gère les reponse utilisateur dans le menu
     public void manageResponseMeet(Object response) {
         switch ((String) response) {
             case "q" :

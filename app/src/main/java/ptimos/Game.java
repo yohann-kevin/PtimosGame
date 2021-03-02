@@ -92,38 +92,48 @@ public class Game {
 
     // démarre un round
     public void startRound() {
-        System.out.println(" ");
-        System.out.println(ansi().fg(this.colorCmd.checkLifeForColor(this.player.getLife())).a(this.player.getName() + " (" + this.player.getLife() + "pv)").reset());
-        System.out.println("Vous êtes à " + this.range + "m d'un " + this.ptimo.getType());
-        System.out.println(" ");
-        System.out.println("[1] - Observer");
-        System.out.println("[2] - Se rapprocher");
-        System.out.println("[3] - Lancer une friandise (x" + this.player.getCandy() + ")");
-        System.out.println("[4] - Faire une danse imprésionnnate");
-        System.out.println("[5] - Tirer une flechette endormante (x" + this.player.getSleepingArrow() + ")");
-        System.out.println(" ");
-        System.out.println(ansi().fg(this.colorCmd.red()).a("[0] - Laisser le " + this.ptimo.getType() + " en liberté").reset());
-        manageEndgame();
-    }
-
-    // gère la fin du jeux 
-    public void manageEndgame() {
-        if (this.player.getLife() <= 0) {
-            this.gameOver();
-        } else if(this.range <= 0) {
-            this.player.capture(this.ptimo);
-            this.init();
-        } else if(this.range > 14) {
-            this.init();
-        } else {
-            this.usersResponse.userReadLine();
+        if (!this.manageEndgame()) {
             System.out.println(" ");
-            this.checkUsersResponse(this.usersResponse);
-            this.usersExitGame();
+            System.out.println(ansi().fg(this.colorCmd.checkLifeForColor(this.player.getLife())).a(this.player.getName() + " (" + this.player.getLife() + "pv)").reset());
+            System.out.println("Vous êtes à " + this.range + "m d'un " + this.ptimo.getType());
+            System.out.println(" ");
+            System.out.println("[1] - Observer");
+            System.out.println("[2] - Se rapprocher");
+            System.out.println("[3] - Lancer une friandise (x" + this.player.getCandy() + ")");
+            System.out.println("[4] - Faire une danse imprésionnnate");
+            System.out.println("[5] - Tirer une flechette endormante (x" + this.player.getSleepingArrow() + ")");
+            System.out.println(" ");
+            System.out.println(ansi().fg(this.colorCmd.red()).a("[0] - Laisser le " + this.ptimo.getType() + " en liberté").reset());
+            this.play();
         }
     }
 
-    // vérifie si l'utilisateur vuex quitter le jeux
+    // gère la fin du jeux 
+    public boolean manageEndgame() {
+        if (this.player.getLife() <= 0) {
+            this.gameOver();
+            return true;
+        } else if(this.range <= 0) {
+            this.player.capture(this.ptimo);
+            this.init();
+            return true;
+        } else if(this.range > 14) {
+            this.init();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // permet au joueur de jouer
+    public void play() {
+        this.usersResponse.userReadLine();
+        System.out.println(" ");
+        this.checkUsersResponse(this.usersResponse);
+        this.usersExitGame();
+    }
+
+    // vérifie si l'utilisateur veux quitter le jeux
     public void usersExitGame() {
         if (!this.usersResponse.isExit) {
             this.ptimo.feedback(this);
@@ -135,7 +145,6 @@ public class Game {
 
     public void gameOver() {
         AnsiConsole.systemInstall();
-        System.out.println("éééééé");
         System.out.println(ansi().fg(this.colorCmd.red()).a("Game Over !").reset());
     }
 }
