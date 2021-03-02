@@ -42,7 +42,7 @@ public class ColorsCustomer {
         }
     }
 
-    // renvoie une couleur par rapport au stress et de la dominance
+    // renvoie une couleur par rapport au stress et a la dominance
     public Color checkStressAndDominance(String value) {
         if (value.equals("(détendu)") || value.equals("(inoffensif)")) {
             return this.green();
@@ -68,14 +68,8 @@ public class ColorsCustomer {
     public Color checkPtimosAndPtimo(int num,boolean isPtimo) {
         int[] ptimoValue = {3,4,0};
         int[] ptimosValue = {4,5,0};
-        int[] value = new int[3];
-        if (isPtimo) {
-            value = ptimoValue;
-            return this.attributeColor(num, value);
-        } else {
-            value = ptimosValue;
-            return this.attributeColor(num, value);
-        }
+        int[] value = isPtimo ? ptimoValue : ptimosValue;
+        return this.attributeColor(num, value);
     }
 
     public Color attributeColor(int num,int[] value) {
