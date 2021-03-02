@@ -1,6 +1,8 @@
 package ptimos.lib;
 
 import ptimos.Game;
+import ptimos.poker.MainCards;
+
 import static org.fusesource.jansi.Ansi.*;
 
 abstract public class Ptimos {
@@ -9,6 +11,7 @@ abstract public class Ptimos {
     protected int dominance;
     Human target;
     public ColorsCustomer colorCmd = new ColorsCustomer();
+    public Game game;
 
     public Ptimos(String type,Human target) {
         this.type = type;
@@ -38,8 +41,9 @@ abstract public class Ptimos {
 
     // all method
     public void feedback(Game game) {
-        Ia ia = new Ia(this.type,game,this);
-        if (game.range > 0) ia.launchIa();
+        this.game = game;
+        Ia ia = new Ia(this.type,this.game,this);
+        if (this.game.range > 0) ia.launchIa();
     }
 
     public void roar() {
@@ -64,6 +68,43 @@ abstract public class Ptimos {
     }
 
     public void magicAttack() {
-        System.out.println(ansi().fg(this.colorCmd.blue()).a("atack magic").reset());
+        if (this.getType().equals("pokrand")) {
+            this.checkMainPoker();
+        } else {
+            this.atkMagicNormal(); 
+        }
     }
+
+    public void checkMainPoker() {
+        System.out.println("Le " + this.getType() + " sort un jeux de poker");
+        MainCards poker = new MainCards();
+        System.out.println("Le " + this.getType() + " pioche cinq carte");
+        String result = poker.getMainCards();
+        String[] cards = poker.getCards();
+        System.out.println(cards[0] + " " + cards[1] + " " + cards[2] + " " + cards[3] + " " + cards[4]);
+        this.verifyCombo(result);
+    }
+
+    public void verifyCombo(String result) {
+        if (result.equals("assome")) {
+            System.out.println("Le " + this.getType() + " vous assome et s'en va avec vos ptimos :)");
+            this.target.setPokrandCaptured(0);
+            this.target.setPyraliaCaptured(0);
+            this.target.setSacbleuCaptured(0);
+        } else if (result.equals("fuit")) {
+            this.game.range = 16;
+            System.out.println("Le " + this.getType() + " prend la fuite !");
+        } else {
+            atkMagicNormal();
+        }
+    }
+
+    public void atkMagicNormal() {
+        int dps = new RandomNum(0, 20).generateRandomNum();
+        this.target.setLife(dps);
+        this.dominance += dps; 
+        if (this.dominance > 100) this.dominance = 100;
+        System.out.println(ansi().fg(this.colorCmd.blue()).a("Le " + this.getType() + " lance une attaque magique"));
+    }
+    
 }

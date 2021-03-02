@@ -66,7 +66,6 @@ public class Ia {
 
     public void getHighProba() {
         int[] allProba = {this.probaRoar,this.probaAtk,this.probaMove,this.probaAtkMagic};
-        // printProba();
         int bigNumIndex = 0;
         for (int i = 0; i < allProba.length; i++) {
             if (allProba[i] >= allProba[bigNumIndex]) bigNumIndex = i;
@@ -86,7 +85,6 @@ public class Ia {
                 this.ptimo.moveAway(this.game);
                 break;
             case 3 :
-                System.out.println("atk magic");
                 this.ptimo.magicAttack();
                 break;
             default : 

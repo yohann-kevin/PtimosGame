@@ -1,5 +1,7 @@
 package ptimos.lib;
 
+import static org.fusesource.jansi.Ansi.*;
+
 public class Pyralia extends Ptimos{
     
     public Pyralia(String type,Human target) {

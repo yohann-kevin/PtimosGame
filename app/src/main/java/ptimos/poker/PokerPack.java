@@ -2,16 +2,6 @@ package ptimos.poker;
 
 import ptimos.lib.RandomNum;
 
-// roi -> k -> king
-// dame -> d -> dame
-// valet -> v -> valet
-// as -> a -> as
-
-// spade -> s -> pique
-// diamonds -> d -> carreau
-// heart -> h -> coeur
-// clover -> c -> trèfle
-
 public class PokerPack {
     String[] allCards = new String[52];
 

@@ -137,9 +137,6 @@ public class Combo {
     }
 
     public boolean checkSquare() {
-        System.out.println("----------------------");
-        System.out.println(this.checkPair());
-        System.out.println(this.pairOrSquare());
         if (!this.checkPair() && this.pairOrSquare()) return true;
         return false;
     }
@@ -149,7 +146,6 @@ public class Combo {
         return false;
     }
 
-    // method temporaire
     public boolean checkFull() {
         if (this.checkPair() && this.checkBrelan()) return true;
         return false;

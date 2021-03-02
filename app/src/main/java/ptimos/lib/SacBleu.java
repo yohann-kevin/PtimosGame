@@ -1,5 +1,7 @@
 package ptimos.lib;
 
+import static org.fusesource.jansi.Ansi.*;
+
 public class SacBleu extends Ptimos {
     
     public SacBleu(String type,Human target) {

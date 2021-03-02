@@ -44,12 +44,24 @@ public class Human {
         return this.sleepingArrow;
     }
 
+    public void setPokrandCaptured(int value) {
+        this.pyraliaCaptured = value;
+    }
+
     public int getSacBleuCaptured() {
         return this.sacbleuCaptured;
     }
 
+    public void setSacbleuCaptured(int value) {
+        this.pyraliaCaptured = value;
+    }
+
     public int getPyraliaCaptured() {
         return this.pyraliaCaptured;
+    }
+
+    public void setPyraliaCaptured(int value) {
+        this.pyraliaCaptured = value;
     }
 
     // all method
