@@ -1,13 +1,13 @@
 package ptimos.lib;
 
 public class GaugeStressAndDominance {
-    String[] resultStress = {"(détendu)","(méfiant)","(nerveux)","(paniqué)"};
-    String[] resultDominance = {"(inoffensif)","(neutre)","(féroce)","(dangeureux)"};
-    String[] tabResult = new String[resultStress.length];
-    String finalResult;
-    int stress;
-    int dominance;
-    int element;
+    private String[] resultStress = {"(détendu)","(méfiant)","(nerveux)","(paniqué)"};
+    private String[] resultDominance = {"(inoffensif)","(neutre)","(féroce)","(dangeureux)"};
+    private String[] tabResult = new String[resultStress.length];
+    private String finalResult;
+    private int stress;
+    private int dominance;
+    private int element;
 
     public GaugeStressAndDominance(int stress, int dominance) {
         this.stress = stress;

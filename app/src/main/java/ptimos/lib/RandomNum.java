@@ -1,8 +1,8 @@
 package ptimos.lib;
 
 public class RandomNum {
-    int max;
-    int min;
+    private int max;
+    private int min;
     public RandomNum(int min,int max) {
         this.min = min;
         this.max = max;

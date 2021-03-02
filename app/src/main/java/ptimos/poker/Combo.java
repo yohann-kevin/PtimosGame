@@ -1,9 +1,9 @@
 package ptimos.poker;
 
 public class Combo {
-    public String[] cards = new String[5];
-    public String[] value = new String[5];
-    public String[] symbol = new String[5];
+    private String[] cards = new String[5];
+    private String[] value = new String[5];
+    private String[] symbol = new String[5];
 
     public Combo(String[] mainCards) {
         this.cards = mainCards;

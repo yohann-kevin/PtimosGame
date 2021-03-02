@@ -1,7 +1,7 @@
 package ptimos.poker;
 
 public class MainCards extends PokerPack {
-    String[] cards = new String[5];
+    private String[] cards = new String[5];
 
     public String[] getCards() {
         return this.cards;

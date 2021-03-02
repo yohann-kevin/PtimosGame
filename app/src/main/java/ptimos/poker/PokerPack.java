@@ -3,7 +3,7 @@ package ptimos.poker;
 import ptimos.lib.RandomNum;
 
 public class PokerPack {
-    String[] allCards = new String[52];
+    private String[] allCards = new String[52];
 
     public void initPack() {
         int counter = 0;

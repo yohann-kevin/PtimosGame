@@ -4,10 +4,10 @@ import org.fusesource.jansi.AnsiConsole;
 import static org.fusesource.jansi.Ansi.*;
 
 public class ColorsCustomer {
-    public Color ANSI_RED = Color.RED;
-    public Color ANSI_GREEN = Color.GREEN;
-    public Color ANSI_YELLOW = Color.YELLOW;
-    public Color ANSI_BLUE = Color.CYAN;
+    private Color ANSI_RED = Color.RED;
+    private Color ANSI_GREEN = Color.GREEN;
+    private Color ANSI_YELLOW = Color.YELLOW;
+    private Color ANSI_BLUE = Color.CYAN;
 
     public void initJansi() {
         AnsiConsole.systemInstall();

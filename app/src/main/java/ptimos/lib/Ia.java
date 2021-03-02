@@ -3,14 +3,14 @@ package ptimos.lib;
 import ptimos.Game;
 
 public class Ia {
-    String type;
-    int range;
-    int probaRoar;
-    int probaAtk;
-    int probaMove;
-    int probaAtkMagic;
-    Game game;
-    Ptimos ptimo;
+    private String type;
+    private int range;
+    private int probaRoar;
+    private int probaAtk;
+    private int probaMove;
+    private int probaAtkMagic;
+    private Game game;
+    private Ptimos ptimo;
 
     public Ia(String type,Game game,Ptimos ptimo) {
         this.type = type;

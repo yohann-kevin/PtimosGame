@@ -6,10 +6,10 @@ import ptimos.poker.MainCards;
 import static org.fusesource.jansi.Ansi.*;
 
 abstract public class Ptimos {
-    String type;
+    private String type;
     protected int stress;
     protected int dominance;
-    Human target;
+    private Human target;
     public ColorsCustomer colorCmd = new ColorsCustomer();
     public Game game;
 
