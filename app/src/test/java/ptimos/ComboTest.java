@@ -216,5 +216,61 @@ public class ComboTest {
         combo.initCombo();
         assertEquals("full",combo.checkCombo());
     }
+
+    @Test 
+    public void testResult1() {
+        String[] cards = {"2-c","3-c","4-c","5-c","6-h"};
+        Combo combo = new Combo(cards);
+        combo.initCombo();
+        assertEquals("fuit",combo.decideAction());
+    }
+
+    @Test 
+    public void testResult2() {
+        String[] cards = {"3-h","3-c","8-c","9-c","6-h"};
+        Combo combo = new Combo(cards);
+        combo.initCombo();
+        assertEquals("atkMagic",combo.decideAction());
+    }
+
+    @Test 
+    public void testResult3() {
+        String[] cards = {"2-c","3-c","4-c","5-c","6-c"};
+        Combo combo = new Combo(cards);
+        combo.initCombo();
+        assertEquals("assome",combo.decideAction());
+    }
+
+    @Test 
+    public void testResult4() {
+        String[] cards = {"5-c","5-s","K-d","5-d","4-h"};
+        Combo combo = new Combo(cards);
+        combo.initCombo();
+        assertEquals("fuit",combo.decideAction());
+    }
+
+    @Test 
+    public void testResult5() {
+        String[] cards = {"8-s","8-c","3-c","8-h","8-d"};
+        Combo combo = new Combo(cards);
+        combo.initCombo();
+        assertEquals("assome",combo.decideAction());
+    }
+
+    @Test 
+    public void testResult6() {
+        String[] cards = {"8-c","2-c","3-c","4-c","5-c"};
+        Combo combo = new Combo(cards);
+        combo.initCombo();
+        assertEquals("fuit",combo.decideAction());
+    }
+
+    @Test 
+    public void testResult7() {
+        String[] cards = {"3-h","3-s","3-c","4-c","4-h"};
+        Combo combo = new Combo(cards);
+        combo.initCombo();
+        assertEquals("assome",combo.decideAction());
+    }
     
 }

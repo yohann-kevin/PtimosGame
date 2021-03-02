@@ -38,6 +38,17 @@ public class Combo {
         return result;
     }
 
+    public String decideAction() {
+        String result = this.checkCombo();
+        if (result.equals("full") || result.equals("carré") || result.equals("quinte-flush")) {
+            return "assome";
+        } else if (result.equals("brelan") || result.equals("quinte") || result.equals("flush")) {
+            return "fuit";
+        } else {
+            return "atkMagic";
+        }
+    }
+
     public boolean checkPair() {
         int counter = 0;
         for (int i = 0; i < this.value.length; i++) {
