@@ -57,20 +57,31 @@ public class ColorsCustomer {
 
     // renvoie une couleur en fonction du nombre de ptimos total
     public Color checkAllPtimos(int numberPtimos) {
-        if (numberPtimos > 4) {
-            return this.green();
-        } else if(numberPtimos > 0 && numberPtimos < 5) {
-            return this.yellow();
-        } else {
-            return this.red();
-        }
+        return this.checkPtimosAndPtimo(numberPtimos, false);
     }
 
     // renvoie une couleur en fonction du nombre de ptimo
     public Color checkPtimo(int numPtimo) {
-        if (numPtimo > 3) {
+        return this.checkPtimosAndPtimo(numPtimo, true);
+    }
+
+    public Color checkPtimosAndPtimo(int num,boolean isPtimo) {
+        int[] ptimoValue = {3,4,0};
+        int[] ptimosValue = {4,5,0};
+        int[] value = new int[3];
+        if (isPtimo) {
+            value = ptimoValue;
+            return this.attributeColor(num, value);
+        } else {
+            value = ptimosValue;
+            return this.attributeColor(num, value);
+        }
+    }
+
+    public Color attributeColor(int num,int[] value) {
+        if (num > value[0]) {
             return this.green();
-        } else if (numPtimo < 4 && numPtimo > 0) {
+        } else if (num < value[1] && num > value[2]) {
             return this.yellow();
         } else {
             return this.red();  
