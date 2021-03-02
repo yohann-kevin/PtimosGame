@@ -1,7 +1,5 @@
 package ptimos;
 
-// import org.fusesource.jansi.Ansi.Color;
-
 import ptimos.factory.PtimoFactory;
 import ptimos.lib.ColorsCustomer;
 import ptimos.lib.Human;

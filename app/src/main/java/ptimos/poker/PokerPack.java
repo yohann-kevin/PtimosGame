@@ -27,20 +27,14 @@ public class PokerPack {
                 value++;
                 if (value == 1 || value == 11 || value == 12 ||value == 13) {
                     String otherValue = this.transformValue(value);
-                    result = otherValue + symbol;
+                    result = otherValue + "-" + symbol;
                 } else {
-                    result = value + symbol;
+                    result = value + "-" + symbol;
                 }
                 this.allCards[j + (i * 13)] = result;
             }
         }
     }
-
-    // public void testCard() {
-    //     for (int i = 0; i < this.allCards.length; i++) {
-    //         System.out.println(this.allCards[i]);
-    //     }
-    // }
 
     public String getSymbol(int index) {
         if (index == 0) {

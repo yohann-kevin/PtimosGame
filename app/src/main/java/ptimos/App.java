@@ -10,7 +10,7 @@ public class App {
         System.setProperty( "file.encoding", "UTF-8" );
 
         MainCards poker = new MainCards();
-        poker.getCards();
+        poker.getMainCards();
         
         // création de juliette
         HumanFactory factoryHuman = HumanFactory.getHumanFactory();
