@@ -47,11 +47,16 @@ public class Game {
         } else if (result > 61 && result < 91) {
             this.ptimo = factoryPtimo.getPtimo("pyralia",this.player);
         } else {
-            if (this.player.getAllPtimos() > 4 && this.player.getSacBleuCaptured() > 0 && this.player.getPyraliaCaptured() > 0) {
-                this.ptimo = factoryPtimo.getPtimo("pokrand",this.player);
-            } else {
-                this.selectPtimos();
-            }
+            this.verifyPtimosForPokrand(factoryPtimo);
+        }
+    }
+
+    // vérifie si l'on a bien capturer 5 ptimo dont un pyralia et un sacbleu minimum
+    public void verifyPtimosForPokrand(PtimoFactory factoryPtimo) {
+        if (this.player.getAllPtimos() > 2 && this.player.getSacBleuCaptured() > 0 && this.player.getPyraliaCaptured() > 0) {
+            this.ptimo = factoryPtimo.getPtimo("pokrand",this.player);
+        } else {
+            this.selectPtimos();
         }
     }
 
