@@ -16,14 +16,19 @@ public class PokerPack {
             for (int j = 0; j < 13;j++) {
                 String symbol = this.getSymbol(i);
                 value++;
-                if (value == 1 || value == 11 || value == 12 ||value == 13) {
-                    String otherValue = this.transformValue(value);
-                    result = otherValue + "-" + symbol;
-                } else {
-                    result = value + "-" + symbol;
-                }
+                result = this.manageSpecialValue(value, symbol);
                 this.allCards[j + (i * 13)] = result;
             }
+        }
+    }
+
+    // method permettant de gérer les valeur spécial
+    public String manageSpecialValue(int value, String symbol) {
+        if (value == 1 || value == 11 || value == 12 ||value == 13) {
+            String otherValue = this.transformValue(value);
+            return otherValue + "-" + symbol;
+        } else {
+            return value + "-" + symbol;
         }
     }
 
