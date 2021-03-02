@@ -47,12 +47,11 @@ public class Game {
         } else if (result > 61 && result < 91) {
             this.ptimo = factoryPtimo.getPtimo("pyralia",this.player);
         } else {
-            // if (this.player.getAllPtimos() > 4 && this.player.getSacBleuCaptured() > 0 && this.player.getPyraliaCaptured() > 0) {
-            //     this.ptimo = factoryPtimo.getPtimo("pokrand",this.player);
-            // } else {
-            //     this.selectPtimos();
-            // }
-            this.ptimo = factoryPtimo.getPtimo("pokrand",this.player);
+            if (this.player.getAllPtimos() > 4 && this.player.getSacBleuCaptured() > 0 && this.player.getPyraliaCaptured() > 0) {
+                this.ptimo = factoryPtimo.getPtimo("pokrand",this.player);
+            } else {
+                this.selectPtimos();
+            }
         }
     }
 

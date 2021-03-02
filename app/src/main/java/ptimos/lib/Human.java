@@ -102,13 +102,14 @@ public class Human {
     // une danse impressionante
     public void awesomeDance(Ptimos target) {
         int dancingPower = new RandomNum(7, 21).generateRandomNum();
-        if (dancingPower < 15) {
-            target.setDominance(dancingPower);
-            System.out.println(ansi().fg(this.colorCmd.yellow()).a("Vous effectuer une dance asser sympa qui baisse la dominance du " + target.getType() + " de " + dancingPower + " point").reset());
-        } else {
-            target.setDominance(dancingPower);
-            System.out.println(ansi().fg(this.colorCmd.green()).a("Vous effectuer une dance tellement incroyable qu'elle baisse la dominance du " + target.getType() + " de " + dancingPower + " point !").reset());
-        }
+        String msg = this.selectMsg(dancingPower);
+        System.out.println(ansi().fg(this.colorCmd.green()).a(msg + target.getType() + " de " + dancingPower + " point !").reset());
+    }
+
+    // séléctionne un message a afficher en fonction de la puissance de la danse
+    public String selectMsg(int dancingPower) {
+        if (dancingPower > 15) return "Vous effectuer une dance tellement incroyable qu'elle baisse la dominance du "; 
+        return "Vous effectuer une dance asser sympa qui baisse la dominance du "; 
     }
 
     // tire une fleche
