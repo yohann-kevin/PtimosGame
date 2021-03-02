@@ -54,26 +54,18 @@ public class Combo {
 
     // vérifie si il ya une paire
     public boolean checkPair() {
-        int counter = 0;
-        for (int i = 0; i < this.value.length; i++) {
-            for (int j = 0; j < this.value.length; j++) {
-                if (j != i && this.value[i].equals( this.value[j])) {
-                    counter++;
-                } 
-            }
-        }
-        
-        if (counter == 2 || counter == 8) {
-            return true;
-        } else if (counter == 4) {
-            return this.pairOrSquare();
-        } else {
-            return false;
-        }
+        int counter = this.checkBrelanAndPair();
+        return counter == 2 || counter == 8 ? true : counter == 4 ? this.pairOrSquare() : false;
     }
 
+    
     // vérifie si il y a un brelan
     public boolean checkBrelan() {
+        int counter = this.checkBrelanAndPair();
+        return (counter / 2) == 3 || counter == 8 ? true : false;
+    }
+
+    public int checkBrelanAndPair() {
         int counter = 0;
         for (int i = 0; i < this.value.length; i++) {
             for (int j = 0; j < this.value.length; j++) {
@@ -82,12 +74,7 @@ public class Combo {
                 } 
             }
         }
-        
-        if ((counter / 2) == 3 || counter == 8) {
-            return true;
-        } else {
-            return false;
-        }
+        return counter;
     }
 
     // vérifie si il y a une quinte
