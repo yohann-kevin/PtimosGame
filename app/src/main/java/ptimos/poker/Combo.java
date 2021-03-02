@@ -12,35 +12,30 @@ public class Combo {
     public void initCombo() {
         String[] tab = new String[2];
         for (int i = 0; i < this.cards.length; i++) {
-            System.out.println("Carte : " + this.cards[i]);
             tab = this.cards[i].split("-");
             this.value[i] = tab[0];
             this.symbol[i] = tab[1];
         }
-        for (int i = 0; i < 5; i++) {
-            System.out.println("Value : " + this.value[i]);
-            System.out.println("Symbol : " + this.symbol[i]);
-        }
-        this.checkPair();
     }
 
     public String checkCombo() {
+        String result = "";
         if (this.checkQuinteFlush()) {
-            return "quinte-flush";
+            result = "quinte-flush";
         } else if (this.checkFull()) {
-            return "full";
+            result = "full";
         } else if (this.checkFlush()) {
-            return "flush";
+            result = "flush";
         } else if (this.checkQuinte()) {
-            return "quinte";
+            result = "quinte";
         } else if (this.checkBrelan()) {
-            return "brelan";
+            result = "brelan";
         } else if (this.checkSquare()) {
-            return "carré";
-        } else if (this.checkPair()) {
-            return "pair";
+            result = "carré";
+        } else {
+            result = "pair";
         }
-        return "";
+        return result;
     }
 
     public boolean checkPair() {
