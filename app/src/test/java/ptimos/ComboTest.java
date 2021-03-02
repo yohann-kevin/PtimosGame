@@ -22,6 +22,14 @@ public class ComboTest {
         assertEquals(false,combo.checkPair());
     }
 
+    @Test public void testPair3() {
+        String[] cards = {"3-h","3-s","3-c","4-c","4-h"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        System.out.println("------test------");
+        assertEquals(true,combo.checkPair());
+    }
+
     @Test public void testDoublePair() {
         String[] cards = {"5-c","5-s","K-d","4-d","4-h"};
         Combo combo = new Combo(cards);
@@ -41,6 +49,13 @@ public class ComboTest {
         Combo combo = new Combo(cards);
         combo.testCombo();
         assertEquals(false,combo.checkBrelan());
+    }
+
+    @Test public void testBrelan3() {
+        String[] cards = {"3-h","3-s","3-c","4-c","4-h"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(true,combo.checkBrelan());
     }
 
     @Test public void testQuinte1() {
@@ -76,5 +91,19 @@ public class ComboTest {
         Combo combo = new Combo(cards);
         combo.testCombo();
         assertEquals(false,combo.checkFlush());
+    }
+
+    @Test public void testFull1() {
+        String[] cards = {"3-h","3-s","3-c","4-c","4-h"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(true,combo.checkFull());
+    }
+
+    @Test public void testFull2() {
+        String[] cards = {"8-s","2-c","3-c","4-c","5-c"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(false,combo.checkFull());
     }
 }

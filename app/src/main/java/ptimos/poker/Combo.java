@@ -33,7 +33,9 @@ public class Combo {
                 } 
             }
         }
-        if (counter == 2 || counter == 4) {
+        System.out.println("----------------------");
+        System.out.println("counter : " + counter);
+        if (counter == 2 || counter == 4 || counter == 8) {
             return true;
         } else {
             return false;
@@ -49,8 +51,8 @@ public class Combo {
                 } 
             }
         }
-        System.out.println("counter : " + counter);
-        if ((counter / 2) == 3) {
+        
+        if ((counter / 2) == 3 || counter == 8) {
             return true;
         } else {
             return false;
@@ -94,6 +96,12 @@ public class Combo {
             }
         }
         if ((counter / 4) == 5) return true;
+        return false;
+    }
+
+    // method temporaire
+    public boolean checkFull() {
+        if (checkPair() && checkBrelan()) return true;
         return false;
     }
 
