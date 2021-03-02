@@ -28,4 +28,18 @@ public class ComboTest {
         combo.testCombo();
         assertEquals(true,combo.checkPair());
     }
+
+    @Test public void testBrelan1() {
+        String[] cards = {"5-c","5-s","K-d","5-d","4-h"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(true,combo.checkBrelan());
+    }
+
+    @Test public void testBrelan2() {
+        String[] cards = {"5-c","5-s","K-d","4-d","4-h"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(false,combo.checkBrelan());
+    }
 }

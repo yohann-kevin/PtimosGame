@@ -32,15 +32,29 @@ public class Combo {
                     counter++;
                 } 
             }
-        }        
-        System.out.println("pair");
-        System.out.println(counter);
+        }
         if (counter == 2 || counter == 4) {
             return true;
         } else {
             return false;
         }
-        
+    }
+
+    public boolean checkBrelan() {
+        int counter = 0;
+        for (int i = 0; i < this.value.length; i++) {
+            for (int j = 0; j < this.value.length; j++) {
+                if (j != i && this.value[i].equals(this.value[j])) {
+                    counter++;
+                } 
+            }
+        }
+        System.out.println("counter : " + counter);
+        if ((counter / 2) == 3) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
