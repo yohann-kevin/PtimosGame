@@ -23,14 +23,21 @@ public class UsersReadLine {
     // vérifie le type et la taille de la réponse
     public void verifyResponse(Object response) {
         if (response.getClass().getName() == "java.lang.String" && ((String) response).length() == 1) {
-            try {
-                Integer responseNum = Integer.parseInt((String) response);
-                this.manageResponseFight(responseNum);
-            } catch (Exception e) {
-                this.manageResponseMeet(response);
-            }
+            this.testConvertToInt(response);
         } else {
             this.errorResponse();
+        }
+    }
+
+    // Essaie de convertir le réponse de l'utilisateur en int
+    // Certianement mauvaise pratique en java
+    // si la réponse ne peut pas etre convertit alors l'utilisateur est dans le menu et n'est pas en combat
+    public void testConvertToInt(Object response) {
+        try {
+            Integer responseNum = Integer.parseInt((String) response);
+            this.manageResponseFight(responseNum);
+        } catch (Exception e) {
+            this.manageResponseMeet(response);
         }
     }
 
