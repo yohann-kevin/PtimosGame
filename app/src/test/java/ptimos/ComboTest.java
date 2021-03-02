@@ -42,4 +42,11 @@ public class ComboTest {
         combo.testCombo();
         assertEquals(false,combo.checkBrelan());
     }
+
+    @Test public void testQuinte1() {
+        String[] cards = {"2-c","3-s","4-d","5-d","6-h"};
+        Combo combo = new Combo(cards);
+        combo.testCombo();
+        assertEquals(true,combo.checkQuinte());
+    }
 }

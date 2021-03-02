@@ -57,5 +57,34 @@ public class Combo {
         }
     }
 
+    public boolean checkQuinte() {
+        int counter = 0;
+        for (int i = 0; i < this.value.length; i++) {
+            if ( i != 0) {
+                int value = convertToInt(this.value[i]);
+                int oldValue = convertToInt(this.value[i - 1]);
+                if (value == (oldValue + 1)) counter++;
+            }
+        }
+        if (counter == 4) return true;
+        return false;
+    }
+
+    public int  convertToInt(String valueString) {
+        int value = 0;
+        if (valueString.equals("A")) {
+            value = 1;
+        } else if (valueString.equals("V")) {
+            value = 11;
+        } else if (valueString.equals("D")) {
+            value = 12;
+        } else if (valueString.equals("K")) {
+            value = 13;
+        } else {
+            value = Integer.parseInt(valueString);
+        }
+        return value;
+    }
+
 
 }
