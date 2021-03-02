@@ -93,6 +93,7 @@ public class Ia {
                 break;
             case 3 :
                 this.ptimo.magicAttack();
+                // this.ptimo.plop();
                 break;
             default : 
                 this.ptimo.roar();

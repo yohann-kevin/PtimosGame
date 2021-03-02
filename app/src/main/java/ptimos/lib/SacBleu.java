@@ -14,4 +14,8 @@ public class SacBleu extends Ptimos {
         int bonusMalus = new RandomNum(0, 10).generateRandomNum();
         return bonusMalus;
     }
+
+    public void plop() {
+        System.out.println("plop");
+    }
 }
