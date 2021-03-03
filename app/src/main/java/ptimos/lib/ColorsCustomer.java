@@ -30,6 +30,7 @@ public class ColorsCustomer {
     }
 
     // renvoie une couleur en fonction de la vie
+    // !complexity
     public Color checkLifeForColor(int life) {
         if (life > 75) {
             return this.green();
@@ -43,6 +44,7 @@ public class ColorsCustomer {
     }
 
     // renvoie une couleur par rapport au stress et a la dominance
+    // !complexity
     public Color checkStressAndDominance(String value) {
         if (value.equals("(détendu)") || value.equals("(inoffensif)")) {
             return this.green();

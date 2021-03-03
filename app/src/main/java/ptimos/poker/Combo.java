@@ -20,6 +20,7 @@ public class Combo {
     }
 
     // vérifie tout les combo possible
+    // !complexity
     public String checkCombo() {
         String result = "";
         if (this.checkQuinteFlush()) {
@@ -65,6 +66,7 @@ public class Combo {
         return (counter / 2) == 3 || counter == 8 ? true : false;
     }
 
+    // !complexity
     public int checkBrelanAndPair() {
         int counter = 0;
         for (int i = 0; i < this.value.length; i++) {
@@ -78,6 +80,7 @@ public class Combo {
     }
 
     // vérifie si il y a une quinte
+    // !complexity
     public boolean checkQuinte() {
         int counter = 0;
         for (int i = 0; i < this.value.length; i++) {
@@ -109,6 +112,7 @@ public class Combo {
     }
 
     // vérifie si il y a un flush
+    // !complexity
     public boolean checkFlush() {
         int counter = 0;
         for (int i = 0; i < this.symbol.length; i++) {
@@ -121,6 +125,7 @@ public class Combo {
     }
 
     // method permettant de diférencier une paire d'un carré
+    // !complexity
     public boolean pairOrSquare() {
         int counter = 0;
         for (int i = 0; i < 2; i++) {

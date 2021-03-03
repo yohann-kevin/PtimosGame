@@ -14,7 +14,7 @@ public class PokerPack {
             int value = 0;
             counter++;
             for (int j = 0; j < 13;j++) {
-                String symbol = this.getSymbol(i);
+                String symbol = this.valueOrSymbol(i,false);
                 value++;
                 result = this.manageSpecialValue(value, symbol);
                 this.allCards[j + (i * 13)] = result;
@@ -25,36 +25,34 @@ public class PokerPack {
     // method permettant de gérer les valeur spécial
     public String manageSpecialValue(int value, String symbol) {
         if (value == 1 || value == 11 || value == 12 ||value == 13) {
-            String otherValue = this.transformValue(value);
+            String otherValue = this.valueOrSymbol(value,true);
             return otherValue + "-" + symbol;
         } else {
             return value + "-" + symbol;
         }
     }
 
-    // convertie certaine valeur en symbol
-    public String getSymbol(int index) {
-        if (index == 0) {
-            return "d";
-        } else if (index == 1) {
-            return "h";
-        } else if (index == 2) {
-            return "c";
+    public String valueOrSymbol(int value,boolean isValue) {
+        int[] valueTester = {1,11,12};
+        String[] possibleValue = {"A","V","D","K"};
+        int[] symbolTester = {0,1,2};
+        String[] possibleSymbol = {"d","h","c","s"};
+        if (isValue) {
+            return this.tarnsfomrChar(value, valueTester, possibleValue);
         } else {
-            return "s";
+            return this.tarnsfomrChar(value, symbolTester, possibleSymbol);
         }
     }
 
-    // convertie certaine valeur en symbol
-    public String transformValue(int value) {
-        if (value == 1) {
-            return "A";
-        } else if (value == 11) {
-            return "V";
-        } else if(value == 12) {
-            return "D";
+    public String tarnsfomrChar(int value,int[] valueTest,String[] possibility) {
+        if (value == valueTest[0]) {
+            return possibility[0];
+        } else if (value == valueTest[1]) {
+            return possibility[1];
+        } else if (value == valueTest[2]) {
+            return possibility[2];
         } else {
-            return "K";  
+            return possibility[3];
         }
     }
 

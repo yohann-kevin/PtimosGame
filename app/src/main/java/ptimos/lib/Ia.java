@@ -48,6 +48,7 @@ public class Ia {
     }
 
     // calcul la proba move
+    // !complexity
     public void checkMove() {
         if (this.ptimo.getStress() > 85) {
             this.probaAtkMagic = 30;

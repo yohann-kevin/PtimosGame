@@ -15,6 +15,7 @@ public class GaugeStressAndDominance {
     }
 
     // renvoie le bon therme en fonction du stress et de la dominance
+    // !complexity
     public void gauge(boolean isStress) {
         isStress(isStress);
         this.finalResult = this.element < 26 ? this.tabResult[0] : this.element < 51 ? this.tabResult[1] : this.element < 76 ? this.tabResult[2] : this.tabResult[3];

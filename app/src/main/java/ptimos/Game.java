@@ -6,9 +6,6 @@ import ptimos.lib.Human;
 import ptimos.lib.Ptimos;
 import ptimos.lib.RandomNum;
 import ptimos.lib.UsersReadLine;
-
-// test
-import org.fusesource.jansi.AnsiConsole;
 import static org.fusesource.jansi.Ansi.*;
 
 
@@ -144,7 +141,6 @@ public class Game {
     }
 
     public void gameOver() {
-        AnsiConsole.systemInstall();
         System.out.println(ansi().fg(this.colorCmd.red()).a("Game Over !").reset());
     }
 }

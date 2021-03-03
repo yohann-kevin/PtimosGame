@@ -30,7 +30,7 @@ public class UsersReadLine {
     }
 
     // Essaie de convertir le réponse de l'utilisateur en int
-    // Certianement mauvaise pratique en java
+    // !Certainement mauvaise pratique en java
     // si la réponse ne peut pas etre convertit alors l'utilisateur est dans le menu et n'est pas en combat
     public void testConvertToInt(Object response) {
         try {
